@@ -1,0 +1,399 @@
+/***************************************/
+/*MAP Styling*/
+/***************************************/
+
+html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+
+
+/***************************************/
+/*GENERAL*/
+/***************************************/
+
+body {
+    /*font-family: "Georgia", Times, serif;*/
+    font-family: futura;
+}
+
+#wrapper  {
+    /*Element will never grow larger than 940px, but can get smaller.*/
+    max-width:  940px;
+    /*This bit centers #wrapper */
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+a{
+    text-decoration: none;
+    color: lightgray;
+    display: inline-block;
+}
+
+a:hover{
+    color: goldenrod;
+}
+
+/***************************************/
+/*HEADER*/
+/***************************************/
+
+header{
+    float:left;
+    width: 100%;
+    background-color: #006377;
+}
+
+
+#littlebits {
+    font-size: small;
+    display: inline-block;
+    font-family: Arial;
+    color: lightgrey;
+}
+
+h1{
+    margin: 15px 0;
+    font-size: 1.75em;
+    font-weight: normal;
+    line-height: 0.5em;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+h2{
+font-size:1.75em;
+
+ /*elements pulled together here*/
+margin: -5px 0 0 ;
+font-weight:normal;
+
+}
+
+h3{
+font-size:1.25em;
+
+
+}
+
+/***************************************/
+/*NAVIGATION*/
+/***************************************/
+
+nav{
+    font-size: 5em;
+    color: lightgray;
+}
+nav ul{
+    list-style: none;
+    padding: 5px ;
+}
+
+nav li{
+    display: inline-block;
+}
+
+nav li:hover{
+    color: gold;
+}
+
+#about {
+    float: right;
+    padding: 5px;
+    margin: 0px 10px; /*Top/Bottom Left/Right*/
+
+}
+
+/***************************************/
+/*GENERAL*/
+/***************************************/
+
+/*body{*/
+    /*font-family:'Josefin Sans', sans-serif;*/
+    /*font-family:futura;*/
+/*}*/
+
+/*#wrapper  {*/
+  /*Element will never grow larger than 940px, but can get smaller.*/
+  /*max-width:  940px;*/
+  /*This bit centers #wrapper */
+  /*margin: 0 auto;*/
+  /*padding: 0 5%;*/
+/*}*/
+
+/*a {*/
+  /* This removes default underlining of links (anchor elements)*/
+  /*text-decoration:  none;*/
+/*}*/
+
+/*img{*/
+  /* Constrains image to size of "parent container" - dynamically scales images to size of window*/
+  /*max-width:100%;  */
+/*}*/
+
+/*h3{*/
+  /*margin: 0 0 1em 0;*/
+/*}*/
+
+/***************************************/
+/*HEADING*/
+/***************************************/
+
+/*header{*/
+ /*float:left;*/
+  /*margin: 0 0 30px 0; *//* Goes clockwise on page: Top, Right, bottom, Left*/
+  /*padding:5px 0 0 0; *//*Top, Right, bottom, Left*/
+  /*width: 100%;*/
+/*}*/
+
+
+/*#logo {*/
+  /*text-align: center;*/
+  /*margin: 0;*/
+/*}*/
+
+/*h1{*/
+  /*font-family: 'Josefin Sans', sans-serif;*/
+  /*font-family:"futura";*/
+  /*margin: 15px 0;*/
+  /*font-size: 1.75em;*/
+  /*font-weight: normal;*/
+  /*line-height: 0.8em;*/
+/*}*/
+
+/*h2{*/
+  /*font-size:1.75em;*/
+  /* top, left/right, bottom */
+  /* elements pulled together here*/
+  /*margin: -5px 0 0 ;*/
+  /*font-weight:normal;*/
+
+/*}*/
+
+/*h3{*/
+    /*font-size:1.25em;*/
+
+
+/*}*/
+
+/***************************************/
+/*NAVIGATION*/
+/***************************************/
+
+/*nav{*/
+    /*font-family:"futura";*/
+ /*text-align:center;*/
+  /*padding:10px 0; */
+  /*margin:20px 0 0 ;*/
+/*}*/
+
+/*nav ul{*/
+ /*list-style: none;*/
+ /*margin: 0 10px; *//*Top/Bottom Left/Right*//* */
+ /*padding: 0 ; */
+/*}*/
+
+/*nav li{*/
+ /*display: inline-block; *//* allow list items to appear horizontally*/
+/*}*/
+
+/*nav a{*/
+  /*font-weight:400; *//* select font weight we picked out from the google */
+  /*padding: 20px 20px;*/
+
+/*}*/
+
+/***************************************/
+/*FOOTER*/
+/***************************************/
+/*footer{*/
+ /*font-size:0.75em;*/
+  /*text-align:center;*/
+  /*clear: both; *//*allows footer to be clear of any floated items*/
+  /*padding-top:50px*/
+    /*color: #ccc;*/
+/*}*/
+
+
+/*.social-icon{*/
+  /*width: 20px;*/
+  /*height: 20px;*/
+  /*margin: 0 5px;*/
+/*}*/
+
+/***************************************/
+/*PAGE: PORTFOLIO*/
+/***************************************/
+
+/*#gallery{*/
+  /*margin:0;*/
+  /*padding:0;*/
+  /*list-style:none; *//*remove tacky bullet points, etc.*/
+/*}*/
+
+/*#gallery li{*/
+  /*float:left; *//*where the magic is!*/
+  /*width: 45%; *//*regardless of brwsr wndw sz, imgs only get 45% of the wdth!*/
+  /*margin: 2.5%; *//* fills extra 10% of space not used in line above*/
+  /*background-color: #f5f5f5; *//*Sets the background color*/
+  /*color: #bdc3c7; *//*Sets the text color*/
+/*}*/
+
+/*style paragraphs*/
+/*#gallery li a p{*/
+   /*margin:0;*/
+  /*padding: 5%;*/
+  /*font-size: 0 .75em;*/
+  /*color: #bdc3c7;*/
+/*}*/
+
+
+/***************************************/
+/*PAGE: ABOUT*/
+/***************************************/
+
+/*.profile-photo {*/
+  /*display:   block; *//* in-line vs. block*/
+  /*max-width: 150px;*/
+  /*margin:    0 auto 30 px;*/
+  /*border-radius: 100%;*/
+/*}*/
+
+
+/***************************************/
+/*PAGE: CONTACT*/
+/***************************************/
+
+/*.contact-info {*/
+  /*margin: 0;*/
+  /*padding:  0;*/
+  /*list-style: none; */
+  /*font-size:  0.9em;*/
+/*}*/
+
+/*.contact-info a {*/
+/*display:block; *//* gives us some room */
+  /*min-height: 20px;*/
+  /*background-repeat:no-repeat;*/
+  /*background-size: 20px 20px;*/
+  /*padding: 0 0 0 30px; *//*pushes the text to the right, gives room for images to be displayed.*/
+  /*margin: 0 0 10px;*/
+/*}*/
+
+/*.contact-info li.phone a  {*/
+/*background-image: url('../img/phone_image.jpg');*/
+/*}*/
+
+/*.contact-info li.email a  {*/
+/*background-image: url('../img/kgp_headshot.jpg');*/
+/*}*/
+
+/*.contact-info li.twitter a  {*/
+/*background-image: url('../img/twitter-wrap.png');*/
+/*}*/
+
+/***************************************/
+/*COLORS*/
+/***************************************/
+
+/*site body*/
+/*body {*/
+ /*background-color:#fff;*/
+  /*color: #999;*/
+/*}*/
+
+/* Green header */
+/*header  {*/
+  /*background-color:#6ab47b;*/
+    /*background-color:#60cdcb;*/
+  /*border-color: #599a68;*/
+
+/*}*/
+
+/* Nav background on mobile */
+/*nav {*/
+ /*background: #599a68;*/
+    /*background: #959595;*/
+/*}*/
+
+/* logo text */
+/* Some shorthand here: selector h1 and h2 modified by the same code! */
+/*h1, h2, h3 {*/
+  /* More shorthand: this is white! */
+ /*color: #fff; */
+/*}*/
+
+/* links */
+/*nav a {*/
+/*  color: #6ab47b;*/
+  /*color: #fff;*/
+/*}*/
+
+/**/
+/*nav {*/
+  /*color: #6ab47b;*/
+  /*color: #fff;*/
+/*}*/
+/**/
+
+/* color for nav link */
+/*nav a, nav a:visited {*/
+ /*color: #fff; */
+/*}*/
+
+/* selected nav link */
+/*nav a.selected, nav a:hover {*/
+ /*color: #32673f;*/
+/*} */
+
+
+
+/***************************************/
+/*KP LECTURE NOTES*/
+/***************************************/
+
+/*Colors via Hexidecimal*/
+
+  /* Hexidecimal: 0 1 2 3 4 5 6 7 8 9 a b c d e f */
+  /* Hexidecimal color: #RRGGBB */
+  /* black is #000000, no color used in any of the channels */
+  /* white is #ffffff, max amount of R G B used in respective channel. */
+  /* gray is somehwere in between: #888888*/
+  /* light gray is #ccc*/
+
+
+/* nav a, nav a:visited{} */
+
+  /* Select anchor elements "a" inside "nav." second selector is a pseduo-class, it is the "visisted state" of "nav a."    */
+  /*Access the psedo class through the colon (this is not a joke), "element:state." */
+  /*In this example, we keeps navigation    elements white even after having visited them! Irie, mon.*/
+
+
+/*Properties of classes */
+
+  /*Like an ID but can be used on multiple elements in the markup whereas IDs must be unique to each element. */
+  /*Access the class in css using: */
+  /*element.name_of_class. Here we also declare rules for the hover state using the pseudo class formalism. */
+
+
+/* Margins */
+/* when declaring margin property, first number is top/bottom, second number is left/right  */
+
+/* ems are a relative unit of measure - comes from "m", 1em = current font size, typically 16 px default */
+
+
+
+/***************************************/
+/*Stuff I want to try*/
+/***************************************/
+
+/**/
+/*lazy sizes : load low quality image, puts in sharper image via LQIP: low quality image placeholder.*/
+/*Scroll It : use arrow keys to go between divs or navs.*/
+/*link under line*/
+/*user experience tips from Mike Bostock*/
+/*furtive, a css toolbox that is still too new for lots of browsers*/
+/*http://caniuse.com/*/
+
+
+/**/
+
+
