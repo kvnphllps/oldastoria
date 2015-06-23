@@ -1,35 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style type="text/css">
-        html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
-        nav {
-            /*font-family: "Georgia", Times, serif;*/
-            font-family: futura;
-            font-size: 2em;
-            background-color: #006377;
-            color: lightgray;
-        }
-        nav ul{
-            list-style: none;
-            margin: 0px 20px; /*Top/Bottom Left/Right*/
-            padding: 5px ;
-        }
-
-        nav li{
-            display: inline-block;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/responsive.css"/>
+    <link rel="stylesheet" href="css/normalize.css"/>
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwzyVrSGH229FQOFZC1NgSX3JRs1Wkng">
     </script>
     <script type="text/javascript">
         function initialize() {
             var mapOptions = {
-                center: { lat: 46.185, lng: -123.8311},
-                zoom: 15
+                center: { lat: 46.189, lng: -123.8311},
+                zoom: 16
             };
             var map = new google.maps.Map(document.getElementById('map-canvas'),
                 mapOptions);
@@ -41,20 +23,20 @@
 
 <body>
     <header>
+        <a href="index.php">
+            <h1 > Old Astoria</h1>
+        </a>
+        <div id="littlebits">a mapping of
+            historical photos from the <br>
+            <a href="http://www.cumtux.org/" target="_blank">Clatsop County Historical Society</a></div>
         <nav>
             <ul>
-                <li>
-                    Old Astoria
-                </li>
-                <li>
-                    <div style="font-size: small" style="font-family: Arial">a mapping of historical <br> photos from the CCHS</div>
-                </li>
-
-
-                <li>About</li>
+                <li id="about">About</li>
             </ul>
         </nav>
     </header>
-<div id="map-canvas"></div>
+    <div id="wrapper">
+<!--        <div id="map-canvas"></div>-->
+    </div>
 </body>
 </html>
