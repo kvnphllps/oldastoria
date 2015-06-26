@@ -10,7 +10,7 @@
     <script type="text/javascript">
 
         var defaultPosition = new google.maps.LatLng(46.189, -123.8311);
-        var cityCircle;
+        var nodeCircle;
         function initializeMap() {
             var mapOptions = {
                 center: defaultPosition,
@@ -37,28 +37,27 @@
             ];
             map.setOptions({styles: noPoi});
 
-            // Construct the circle for each location in citymap.
-//            var citymap = {};
-//            citymap['marker1'] = {
-//                center: new google.maps.LatLng(46.189, -123.8311),
-//                population: 4
-//            };
-//
-//            var populationOptions = {
-//                strokeColor: '#c25a5c',
-//                strokeOpacity: 1,
-//                strokeWeight: 1,
-//                fillColor: '#c25a5c',
-//                fillOpacity: 1,
+            // Display our custom circle on the map
+//            var image = {
+//                url: img/dot.png,
+//                scaledSize : new google.maps.Size(5,5)
+//        }
+            var offset = 10;
+            var size = 2;
+            var scaleFactor = size/16;
+            var dotMarker = new google.maps.Marker({
+                position: defaultPosition,
 //                map: map,
-//                center: citymap['marker1'].center,
-//                radius: Math.sqrt(citymap['marker1'].population) * 10
-//            };
-//            // Add the circle for this city to the map.
-//            cityCircle = new google.maps.Circle(populationOptions);
-
-
+                icon: new google.maps.MarkerImage(
+                    'img/dot.png',
+                    new google.maps.Size(16*scaleFactor, 16*scaleFactor), // desired size
+                    new google.maps.Point(0, offset*scaleFactor), // offset within the scaled sprite
+                    new google.maps.Point(size/2, size/2), // anchor point is half of the desired size
+                    new google.maps.Size(16*scaleFactor, 48*scaleFactor) // scaled size of the entire sprite
+                )
+            });
         }
+
         google.maps.event.addDomListener(window, 'load', initializeMap);
 
     </script>
@@ -75,6 +74,8 @@
         </div>
         <nav>
             <ul>
+                <li><a href="#">Before 1922</a></li>
+                <li><a href="#">After 1922</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Feedback</a></li>
             </ul>
