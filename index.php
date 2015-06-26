@@ -9,15 +9,14 @@
     </script>
     <script type="text/javascript">
 
-        var defaultPosition = new google.maps.LatLng(46.189, -123.8311);
-        var nodeCircle;
+        var defPos = new google.maps.LatLng(46.19, -123.8311);
         function initializeMap() {
             var mapOptions = {
-                center: defaultPosition,
-                zoom: 16,
+                center: defPos,
+                zoom: 15,
                 mapTypeId: google.maps.MapTypeId.TERRAIN,
                 disableDefaultUI: true,
-                zoomControl: true,
+                zoomControl: false,
                 panControl: true
             };
             var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -42,19 +41,19 @@
 //                url: img/dot.png,
 //                scaledSize : new google.maps.Size(5,5)
 //        }
-            var offset = 10;
-            var size = 2;
-            var scaleFactor = size/16;
+
+            var mydot = { url: 'img/dot.png', scaledSize: new google.maps.Size(9, 9) };
+
+            var currPos = new google.maps.LatLng(46.18964929, -123.83172154);
+
             var dotMarker = new google.maps.Marker({
-                position: defaultPosition,
-//                map: map,
-                icon: new google.maps.MarkerImage(
-                    'img/dot.png',
-                    new google.maps.Size(16*scaleFactor, 16*scaleFactor), // desired size
-                    new google.maps.Point(0, offset*scaleFactor), // offset within the scaled sprite
-                    new google.maps.Point(size/2, size/2), // anchor point is half of the desired size
-                    new google.maps.Size(16*scaleFactor, 48*scaleFactor) // scaled size of the entire sprite
-                )
+                // use: http://www.mapcoordinates.net/en
+                // to get your list of for desired lat/lng
+                // store as array? database?
+                // associate each with a set of images.
+                position: currPos,
+                map: map,
+                icon: mydot
             });
         }
 
