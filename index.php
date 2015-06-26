@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/normalize.css"/>
     <link href='http://fonts.googleapis.com/css?family=Ultra|Fjalla+One|Francois+One' rel='stylesheet' type='text/css'>
     <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvwzyVrSGH229FQOFZC1NgSX3JRs1Wkng">
+            src="https://maps.googleapis.com/maps/api/js?key=API_key">
     </script>
     <script type="text/javascript">
 
