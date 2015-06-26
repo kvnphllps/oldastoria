@@ -9,7 +9,7 @@
     </script>
     <script type="text/javascript">
 
-        var defPos = new google.maps.LatLng(46.19, -123.8311);
+        var defPos = new google.maps.LatLng(46.185, -123.8311);
         function initializeMap() {
             var mapOptions = {
                 center: defPos,
