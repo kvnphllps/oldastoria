@@ -1,3 +1,6 @@
+<?
+require_once("inc/map_api_config.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +8,7 @@
     <link rel="stylesheet" href="css/normalize.css"/>
     <link href='http://fonts.googleapis.com/css?family=Ultra|Fjalla+One|Francois+One' rel='stylesheet' type='text/css'>
     <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=API_key">
+            src="https://maps.googleapis.com/maps/api/js?key=<? echo OLDASTORIA_API_KEY ?>">
     </script>
     <script type="text/javascript">
 
@@ -42,9 +45,9 @@
 //                scaledSize : new google.maps.Size(5,5)
 //        }
 
-            var mydot = { url: 'img/dot.png', scaledSize: new google.maps.Size(9, 9) };
+            var mydot = { url: 'img/dot.png', scaledSize: new google.maps.Size(8, 8) };
 
-            var currPos = new google.maps.LatLng(46.18964929, -123.83172154);
+            var currPos = new google.maps.LatLng(46.18955929, -123.83172154);
 
             var dotMarker = new google.maps.Marker({
                 // use: http://www.mapcoordinates.net/en
@@ -63,6 +66,7 @@
     <title>Old Astoria</title>
 </head>
 <body>
+
     <header>
         <a href="index.php">
             <h1>OLD ASTORIA</h1>
