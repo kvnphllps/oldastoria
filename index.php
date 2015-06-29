@@ -3,7 +3,6 @@
     <script type="text/javascript">
         var defPos = new google.maps.LatLng(46.183, -123.82251);
         function initializeMap() {
-
             // Set up terrain map with a zoom of 15
             var mapOptions = {
                 center: defPos,
@@ -11,6 +10,9 @@
                 mapTypeId: google.maps.MapTypeId.TERRAIN,
                 disableDefaultUI: true,
                 zoomControl: true,
+                zoomControlOptions: {
+                    style: google.maps.ZoomControlStyle.SMALL
+                },
                 panControl: true
             };
             var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -30,11 +32,10 @@
                 }
             ];
             map.setOptions({styles: noPoi});
-
-            // Display our custom circle on the map
-            var mydot = { url: 'img/dot.png', scaledSize: new google.maps.Size(8, 8) };
+// Display our custom circle on the map
+            var mydot = { url: 'img/dot.png', scaledSize: new google.maps.Size(9, 9) };
             // Lat/Lng of circle
-            var currPos = new google.maps.LatLng(46.18955929, -123.83172154);
+            var currPos = new google.maps.LatLng(46.18966929, -123.83172154);
 
             var dotMarker = new google.maps.Marker({
                 // use: http://www.mapcoordinates.net/en
@@ -59,17 +60,17 @@
 //                maxHeight: 1000
             });
 
-
             google.maps.event.addListener(dotMarker, 'click', function() {
 //                infowindow.open(map,dotMarker);
                 infowindow.open(map);
             });
 
-
         }
 
         google.maps.event.addDomListener(window, 'load', initializeMap);
-    </script>
-    <div id="map-canvas"></div>
+
+      </script>
+
+<div id="map-canvas"></div>
 
 <?php include('inc/footer.php'); ?>
