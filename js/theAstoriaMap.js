@@ -7,6 +7,8 @@ function initializeMap() {
     var mapOptions = {
         center: defPos,
         zoom: 14,
+        minZoom: 14,
+        maxZoom: 16,
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         disableDefaultUI: true,
         zoomControl: true,
