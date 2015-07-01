@@ -2,13 +2,16 @@
  * Created by kevinGphillips on 6/29/15.
  */
 var defPos = new google.maps.LatLng(46.183, -123.82251);
+var mapMinZoom = 14;
+var mapMedZoom = 15;
+var mapMaxZoom = 16;
 function initializeMap() {
     // Set up terrain map with a zoom of 15
     var mapOptions = {
         center: defPos,
-        zoom: 14,
-        minZoom: 14,
-        maxZoom: 16,
+        zoom: mapMinZoom,
+        minZoom: mapMinZoom,
+        maxZoom: mapMaxZoom,
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         disableDefaultUI: true,
         zoomControl: true,
@@ -34,8 +37,10 @@ function initializeMap() {
         }
     ];
     map.setOptions({styles: noPoi});
-// Display our custom circle on the map
-    var mydot = { url: 'img/dot.png', scaledSize: new google.maps.Size(9, 9) };
+    // Display our custom circle on the map
+
+    // Optimize dot around zoom.
+    var myDot = { url: 'img/dot.png', scaledSize: new google.maps.Size(9, 9) };
     // Lat/Lng of circle
     var currPos = new google.maps.LatLng(46.18966929, -123.83172154);
 
@@ -62,9 +67,26 @@ function initializeMap() {
 //                maxHeight: 1000
     });
 
+    // Click listener
     google.maps.event.addListener(dotMarker, 'click', function() {
-//                infowindow.open(map,dotMarker);
         infowindow.open(map);
+    });
+
+    // Zoom listener to format dots based on zoom
+    google.maps.event.addListener(map, 'zoom_changed', function() {
+        if (map.getZoom() == mapMinZoom)
+            console.log(myDot);
+        else if (map.getZoom() == mapMedZoom)
+            mydot = { url: 'img/dot.png', scaledSize: google.maps.Size(7, 7) };
+        else
+            mydot = { url: 'img/dot.png', scaledSize: google.maps.Size(9, 9) };
+        dotMarker.icon = mydot;
+    });
+
+    dotMarker = new google.maps.Marker({
+        position: currPos,
+        map: map,
+        icon: mydot
     });
 
 }
