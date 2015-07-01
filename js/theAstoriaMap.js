@@ -51,43 +51,33 @@ function initializeMap() {
         // associate each with a set of images.
         position: currPos,
         map: map,
-        icon: mydot
+        icon: myDot
     });
 
     // Add marker window (where pictures will live)
     var contentString =
-        '<div>'+
+        '<div style="width: 100%">'+
         '<h1 style="float: right">Here is a picture!</h1>'+
-        '<img  style="float: right" src="img/downtown_astoria.png">'+
+        '<img  style="float: right" style="display: inline-block;" src="img/downtown_astoria.png">'+
+        '<img  style="float: right" style="display: inline-block;" src="img/downtown_astoria.png">'+
         '</div>';
 
-    var infowindow = new google.maps.InfoWindow({
-        content: contentString,
-        maxWidth: 1000
+    var picWindow = new google.maps.InfoWindow({
+        content: contentString
+        //maxWidth: 100
 //                maxHeight: 1000
     });
 
+
+    var picLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
     // Click listener
     google.maps.event.addListener(dotMarker, 'click', function() {
-        infowindow.open(map);
+        picWindow.open(map);
     });
 
-    // Zoom listener to format dots based on zoom
-    google.maps.event.addListener(map, 'zoom_changed', function() {
-        if (map.getZoom() == mapMinZoom)
-            console.log(myDot);
-        else if (map.getZoom() == mapMedZoom)
-            mydot = { url: 'img/dot.png', scaledSize: google.maps.Size(7, 7) };
-        else
-            mydot = { url: 'img/dot.png', scaledSize: google.maps.Size(9, 9) };
-        dotMarker.icon = mydot;
-    });
 
-    dotMarker = new google.maps.Marker({
-        position: currPos,
-        map: map,
-        icon: mydot
-    });
 
 }
 
