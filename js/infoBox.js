@@ -69,9 +69,9 @@ InfoBox.prototype.createElement = function () {
         // This does not handle changing panes. You can set the map to be null and
         // then reset the map to move the div.
         div = this.div_ = document.createElement("div");
-        div.className = "infobox"
+        div.className = "infobox";
         var contentDiv = document.createElement("div");
-        contentDiv.className = "content"
+        contentDiv.className = "content";
         contentDiv.innerHTML = this.content;
         var closeBox = document.createElement("div");
         closeBox.className = "close";
@@ -159,52 +159,54 @@ function initialize() {
 
     var myOptions = { // map settings
         zoom: 8,
-        center: new google.maps.LatLng(-33.397, 150.644),
+        center: new google.maps.LatLng(46.183, -123.82251),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         sensor: 'true'
     }
     var map = new google.maps.Map(document.getElementById("canvas-map"), myOptions);
 
-    var data = [ // map data
-        {
-            'id':1,
-            'content':'Hello my name is marker, I\'m from Google',
-            'position': {
-                'lat':-33,
-                'lng':150
-            }
-        },
-        {
-            'id':2,
-            'content':'I am the content of this infobox. Wow, what a text.<br><br><a href="#">The good thing is: Tags are also possible</a>',
-            'position': {
-                'lat':-34,
-                'lng':150
-            }
-        },
-    ]
-
-    for (var i = 0; i < data.length; i++) {
-        var current = data[i];
-
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(current.position.lat, current.position.lng),
-            map: map,
-            content: current.content
-        });
-
-        markers.push(marker);
-
-        google.maps.event.addListener(markers[i], "click", function (e) {
-            var infoBox = new InfoBox({
-                latlng: this.getPosition(),
-                map: map,
-                content: this.content
-            });
-        });
-    }
+    //var data = [ // map data
+    //    {
+    //        'id':1,
+    //        'content':'Hello my name is marker, I\'m from Google',
+    //        'position': {
+    //            'lat':46,
+    //            'lng':-123
+    //        }
+    //    },
+    //    {
+    //        'id':2,
+    //        'content':'I am the content of this infobox. Wow, what a text.<br><br><a href="#">The good thing is: Tags are also possible</a>',
+    //        'position': {
+    //            'lat':45,
+    //            'lng':-123
+    //        }
+    //    },
+    //]
+    //
+    //for (var i = 0; i < data.length; i++) {
+    //    var current = data[i];
+    //
+    //    var marker = new google.maps.Marker({
+    //        position: new google.maps.LatLng(current.position.lat, current.position.lng),
+    //        map: map,
+    //        content: current.content
+    //    });
+    //
+    //    markers.push(marker);
+    //
+    //    google.maps.event.addListener(markers[i], "click", function (e) {
+    //        var infoBox = new InfoBox({
+    //            latlng: this.getPosition(),
+    //            map: map,
+    //            content: this.content
+    //        });
+    //    });
+    //}
 }
 
-jQuery(document).ready(function(){
-    initialize();
-});
+google.maps.event.addDomListener(window, 'load', initialize);
+
+//jQuery(document).ready(function(){
+//    initialize();
+//});

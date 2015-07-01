@@ -80,3 +80,13 @@ nav li{
     padding-right: 30px ;
 }
 
+/***************************************/
+/*Info Window*/
+/***************************************/
+.gm-style-iw {
+    margin: 10px;
+    /*padding-right: 100px;*/
+    height: 1500px;
+    width: 1500px;
+
+}

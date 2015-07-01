@@ -64,24 +64,30 @@ function initializeMap() {
 
     // Add marker window (where pictures will live)
     var contentString =
-        '<div style="width: 100%">'+
-        '<h1 style="float: right">Here is a picture!</h1>'+
-        '<img  style="float: right" style="display: inline-block;" src="img/downtown_astoria.png">'+
-        '<img  style="float: right" style="display: inline-block;" src="img/downtown_astoria.png">'+
+        //'<div style="width: 1000px; height:1000px; white-space: nowrap;">'+
+        '<div>'+
+        '<h1 style="float: left">Here is a picture!</h1>'+
+        '<img  style="float: left" style="display: inline-block;" src="img/downtown_astoria.png">'+
+        '<img  style="float: left" style="display: inline-block;" src="img/downtown_astoria.png">'+
         '</div>';
 
     var picWindow = new google.maps.InfoWindow({
-        content: contentString
-        //maxWidth: 100
-//                maxHeight: 1000
+        //position: defPos,
+        position: astoriaMap.getCenter(),
+        content: contentString,
+        pixelOffset: 0
     });
 
-    var picLayer = new google.maps.TransitLayer();
-    transitLayer.setMap(astoriaMap);
+
+
+    //
+    //var picLayer = new google.maps.TransitLayer();
+    //transitLayer.setMap(astoriaMap);
 
     // Click listener
     google.maps.event.addListener(dotMarker, 'click', function() {
         picWindow.open(astoriaMap);
+        //map.setCenter(dotMarker.getPosition());
     });
 
 

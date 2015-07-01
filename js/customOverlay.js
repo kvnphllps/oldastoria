@@ -58,20 +58,55 @@ function initializeMap() {
     astoriaMap.setOptions({styles: noPoi});
 
 
+    // Define our dot
+    var myDot = { url: 'img/dot.png', scaledSize: new google.maps.Size(9, 9) };
+
+    // Lat/Lng of dot
+    var currPos = new google.maps.LatLng(46.18966929, -123.83172154);
+
+    // Display custom dot on the map
+    var dotMarker1 = new google.maps.Marker({
+        // use: http://www.mapcoordinates.net/en
+        // to get your list of for desired lat/lng
+        // store as array? database?
+        // associate each with a set of images.
+        position: currPos,
+        map: astoriaMap,
+        icon: myDot
+    });
+
+    var dotMarker2 = new google.maps.Marker({
+        // use: http://www.mapcoordinates.net/en
+        // to get your list of for desired lat/lng
+        // store as array? database?
+        // associate each with a set of images.
+        position: defPos,
+        map: astoriaMap,
+        icon: myDot
+    });
+
     // Overlay options
-    var swBound = new google.maps.LatLng(62.281819, -150.287132);
-    var neBound = new google.maps.LatLng(62.400471, -150.005608);
+    var swBound = currPos;
+    var neBound = defPos;
     var bounds = new google.maps.LatLngBounds(swBound, neBound);
 
     // The photograph is courtesy of the U.S. Geological Survey.
-    var srcImage = 'img/downtown_astoria.png';
+    //var srcImage = 'img/downtown_astoria.png';
+    var srcImage = 'https://developers.google.com/maps/documentation/javascript/';
+    srcImage += 'examples/full/images/talkeetna.png';
 
     // The custom USGSOverlay object contains the USGS image,
     // the bounds of the image, and a reference to the map.
     overlay = new infoBoxOverlay(bounds, srcImage, astoriaMap);
 
-}
+    // Click listener for our dot
+    //google.maps.event.addListener(dotMarker, 'click', function() {
+    //    overlay.prototype.toggleDOM();
+    //    overlay.prototype.show();
+    //});
 
+
+}
 
 /** ****************** **/
 /** Overlay properties **/
@@ -117,7 +152,77 @@ infoBoxOverlay.prototype.onAdd = function() {
 
     // Add the element to the "floatPane" pane. On top of everything else.
     var panes = this.getPanes();
-    panes.floatPane.appendChild(div);
+    panes.overlayMouseTarget.appendChild(div);
+};
+
+/** Draw the overlay **/
+
+infoBoxOverlay.prototype.draw = function() {
+
+    // We use the south-west and north-east
+    // coordinates of the overlay to peg it to the correct position and size.
+    // To do this, we need to retrieve the projection from the overlay.
+    var overlayProjection = this.getProjection();
+
+    // Retrieve the south-west and north-east coordinates of this overlay
+    // in LatLngs and convert them to pixel coordinates.
+    // We'll use these coordinates to resize the div.
+    var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+    var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+
+    // Resize the image's div to fit the indicated dimensions.
+    var div = this.div_;
+    div.style.left = sw.x + 'px';
+    div.style.top = ne.y + 'px';
+    div.style.width = (ne.x - sw.x) + 'px';
+    div.style.height = (sw.y - ne.y) + 'px';
+};
+
+
+/** Remove the overlay **/
+// The onRemove() method will be called automatically from the API if
+// we ever set the overlay's map property to 'null'.
+infoBoxOverlay.prototype.onRemove = function() {
+        this.div_.parentNode.removeChild(this.div_);
+        this.div_ = null;
+    };
+
+
+/** Hide & Show the info box**/
+// Set the visibility to 'hidden' or 'visible'.
+infoBoxOverlay.prototype.hide = function() {
+    if (this.div_) {
+        // The visibility property must be a string enclosed in quotes.
+        this.div_.style.visibility = 'hidden';
+    }
+};
+
+infoBoxOverlay.prototype.show = function() {
+    if (this.div_) {
+        this.div_.style.visibility = 'visible';
+    }
+};
+
+infoBoxOverlay.prototype.toggle = function() {
+    if (this.div_) {
+        if (this.div_.style.visibility == 'hidden') {
+            this.show();
+        } else {
+            this.hide();
+        }
+    }
+};
+
+// Detach the map from the DOM via toggleDOM().
+// Note that if we later reattach the map, it will be visible again,
+// because the containing <div> is recreated in the overlay's onAdd() method.
+infoBoxOverlay.prototype.toggleDOM = function() {
+    if (this.getMap()) {
+        // Note: setMap(null) calls OverlayView.onRemove()
+        this.setMap(null);
+    } else {
+        this.setMap(this.map_);
+    }
 };
 
 
