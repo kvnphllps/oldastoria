@@ -64,13 +64,61 @@ function initializeMap() {
     var bounds = new google.maps.LatLngBounds(swBound, neBound);
 
     // The photograph is courtesy of the U.S. Geological Survey.
-    var srcImage = 'https://developers.google.com/maps/documentation/javascript/';
-    srcImage += 'examples/full/images/talkeetna.png';
+    var srcImage = 'img/downtown_astoria.png';
 
     // The custom USGSOverlay object contains the USGS image,
     // the bounds of the image, and a reference to the map.
-    overlay = new USGSOverlay(bounds, srcImage, map);
+    overlay = new infoBoxOverlay(bounds, srcImage, astoriaMap);
 
 }
+
+
+/** ****************** **/
+/** Overlay properties **/
+/** @constructor       **/
+/** ****************** **/
+
+function infoBoxOverlay(bounds, image, map) {
+
+    // Initialize all properties.
+    this.bounds_ = bounds;
+    this.image_ = image;
+    this.map_ = map;
+
+    // Define a property to hold the image's div. We'll
+    // actually create this div upon receipt of the onAdd()
+    // method so we'll leave it null for now.
+    this.div_ = null;
+
+    // Explicitly call setMap on this overlay.
+    this.setMap(map);
+}
+
+/**
+ * onAdd is called when the map's panes are ready and the overlay has been
+ * added to the map.
+ */
+infoBoxOverlay.prototype.onAdd = function() {
+
+    var div = document.createElement('div');
+    div.style.borderStyle = 'none';
+    div.style.borderWidth = '0px';
+    div.style.position = 'absolute';
+
+    // Create the img element and attach it to the div.
+    var img = document.createElement('img');
+    img.src = this.image_;
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.position = 'absolute';
+    div.appendChild(img);
+
+    this.div_ = div;
+
+    // Add the element to the "floatPane" pane. On top of everything else.
+    var panes = this.getPanes();
+    panes.floatPane.appendChild(div);
+};
+
 
 google.maps.event.addDomListener(window, 'load', initializeMap);
