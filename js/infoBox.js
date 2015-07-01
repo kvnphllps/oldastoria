@@ -87,7 +87,7 @@ InfoBox.prototype.createElement = function () {
         div.appendChild(contentDiv);
         div.style.display = 'none';
         panes.floatPane.appendChild(div);
-        this.panMap();
+        //this.panMap();
     } else if (div.parentNode != panes.floatPane) {
         // The panes have changed. Move the div.
         div.parentNode.removeChild(div);
@@ -116,8 +116,10 @@ InfoBox.prototype.panMap = function () {
     var padY = 40;
     // The degrees per pixel
     var mapDiv = map.getDiv();
-    var mapWidth = mapDiv.offsetWidth;
-    var mapHeight = mapDiv.offsetHeight;
+    //var mapWidth = mapDiv.offsetWidth;
+    //var mapHeight = mapDiv.offsetHeight;
+    var mapWidth = iwWidth;
+    var mapHeight = iwHeight;
     var boundsSpan = bounds.toSpan();
     var longSpan = boundsSpan.lng();
     var latSpan = boundsSpan.lat();

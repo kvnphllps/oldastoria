@@ -8,6 +8,7 @@
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=<? echo OLDASTORIA_API_KEY ?>">
     </script>
+
     <title>Old Astoria</title>
 </head>
 <body>
