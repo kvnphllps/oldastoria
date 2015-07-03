@@ -1,12 +1,18 @@
 /**
  * Created by kevinGphillips on 6/29/15.
  */
-var defPos = new google.maps.LatLng(46.183, -123.82251);
-var mapMinZoom = 14;
-var mapMedZoom = 15;
-var mapMaxZoom = 16;
+var userPos;
+
 function initializeMap() {
-    // Set up terrain map with a zoom of 15
+
+    // Define default position
+    var defPos = new google.maps.LatLng(46.183, -123.82251);
+
+    // Bounds on zoom
+    var mapMinZoom = 14;
+    var mapMaxZoom = 16;
+
+    // Set Map properties: terrain map with a default zoom of 14
     var mapOptions = {
         center: defPos,
         zoom: mapMinZoom,
@@ -20,9 +26,11 @@ function initializeMap() {
         },
         panControl: true
     };
-    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-    // turn off points of interest
+    // Create map object
+    var astoriaMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+    // Hide points of interest & custom color water to match banner.
     var noPoi = [
         {
             featureType: "poi",
@@ -36,48 +44,64 @@ function initializeMap() {
             ]
         }
     ];
-    map.setOptions({styles: noPoi});
-    // Display our custom circle on the map
+    astoriaMap.setOptions({styles: noPoi});
 
-    // Optimize dot around zoom.
+    // Define our dot
     var myDot = { url: 'img/dot.png', scaledSize: new google.maps.Size(9, 9) };
+
     // Lat/Lng of circle
     var currPos = new google.maps.LatLng(46.18966929, -123.83172154);
 
+    // Display custom dot on the map
     var dotMarker = new google.maps.Marker({
         // use: http://www.mapcoordinates.net/en
         // to get your list of for desired lat/lng
         // store as array? database?
         // associate each with a set of images.
         position: currPos,
-        map: map,
+        map: astoriaMap,
         icon: myDot
     });
 
     // Add marker window (where pictures will live)
     var contentString =
-        '<div style="width: 100%">'+
-        '<h1 style="float: right">Here is a picture!</h1>'+
-        '<img  style="float: right" style="display: inline-block;" src="img/downtown_astoria.png">'+
-        '<img  style="float: right" style="display: inline-block;" src="img/downtown_astoria.png">'+
+        //'<div style="width: 1000px; height:1000px; white-space: nowrap;">'+
+        '<div>'+
+        '<h1 style="float: left">Here is a picture!</h1>'+
+        '<img  style="float: left" style="display: inline-block;" src="img/downtown_astoria.png">'+
+        '<img  style="float: left" style="display: inline-block;" src="img/downtown_astoria.png">'+
         '</div>';
 
     var picWindow = new google.maps.InfoWindow({
-        content: contentString
-        //maxWidth: 100
-//                maxHeight: 1000
+        position: currPos,
+        //position: astoriaMap.getCenter(),
+        content: contentString,
+        pixelOffset: 0
     });
 
 
-    var picLayer = new google.maps.TransitLayer();
-    transitLayer.setMap(map);
+
+    //
+    //var picLayer = new google.maps.TransitLayer();
+    //transitLayer.setMap(astoriaMap);
 
     // Click listener
-    google.maps.event.addListener(dotMarker, 'click', function() {
-        picWindow.open(map);
+    new google.maps.event.addListener(dotMarker, 'click', function() {
+        userPos = astoriaMap.getCenter();
+        picWindow.open(astoriaMap);
+
+    });
+
+    new google.maps.event.addListener(picWindow, 'closeclick', function() {
+        astoriaMap.setCenter(userPos);
     });
 
 
+
+    //new google.maps.event.addListener(picWindow, 'close', function() {
+    //    picWindow.close(astoriaMap);
+    //    //astoriaMap.setCenter(latlng:userPos);
+    //});
 
 }
 
