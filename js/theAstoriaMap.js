@@ -1,6 +1,8 @@
 /**
  * Created by kevinGphillips on 6/29/15.
  */
+
+
 var userPos;
 
 function initializeMap() {
@@ -52,30 +54,35 @@ function initializeMap() {
     // Lat/Lng of circle
     var currPos = new google.maps.LatLng(46.18966929, -123.83172154);
 
+
+    console.log(dotData[0].position.lat,dotData[0].position.lng);
+
+
+
     // Display custom dot on the map
     var dotMarker = new google.maps.Marker({
         // use: http://www.mapcoordinates.net/en
         // to get your list of for desired lat/lng
         // store as array? database?
         // associate each with a set of images.
-        position: currPos,
+        position: new google.maps.LatLng(dotData[0].position.lat, dotData[0].position.lng),
         map: astoriaMap,
         icon: myDot
     });
 
     // Add marker window (where pictures will live)
-    var contentString =
-        //'<div style="width: 1000px; height:1000px; white-space: nowrap;">'+
-        '<div>'+
-        '<h1 style="float: left">Here is a picture!</h1>'+
-        '<img  style="float: left" style="display: inline-block;" src="img/downtown_astoria.png">'+
-        '<img  style="float: left" style="display: inline-block;" src="img/downtown_astoria.png">'+
-        '</div>';
+    //var contentString =
+    //    //'<div style="width: 1000px; height:1000px; white-space: nowrap;">'+
+    //    '<div>'+
+    //    '<h1 style="float: left">Here is a picture!</h1>'+
+    //    '<img  style="float: left" style="display: inline-block;" src="img/downtown_astoria.png">'+
+    //    '<img  style="float: left" style="display: inline-block;" src="img/downtown_astoria.png">'+
+    //    '</div>';
 
     var picWindow = new google.maps.InfoWindow({
-        position: currPos,
+        position: new google.maps.LatLng(dotData[0].position.lat, dotData[0].position.lng),
         //position: astoriaMap.getCenter(),
-        content: contentString,
+        content: dotData[0].content,
         pixelOffset: 0
     });
 
