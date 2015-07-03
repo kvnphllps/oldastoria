@@ -72,8 +72,8 @@ function initializeMap() {
         '</div>';
 
     var picWindow = new google.maps.InfoWindow({
-        //position: defPos,
-        position: astoriaMap.getCenter(),
+        position: currPos,
+        //position: astoriaMap.getCenter(),
         content: contentString,
         pixelOffset: 0
     });
