@@ -48,67 +48,38 @@ function initializeMap() {
     ];
     astoriaMap.setOptions({styles: noPoi});
 
-    // Define our dot
+    // Define our dot for each location on map where we have a photo
     var myDot = { url: 'img/dot.png', scaledSize: new google.maps.Size(9, 9) };
 
     // Lat/Lng of circle
     var currPos = new google.maps.LatLng(46.18966929, -123.83172154);
 
-
-    console.log(dotData[0].position.lat,dotData[0].position.lng);
-
-
-
     // Display custom dot on the map
     var dotMarker = new google.maps.Marker({
-        // use: http://www.mapcoordinates.net/en
-        // to get your list of for desired lat/lng
-        // store as array? database?
-        // associate each with a set of images.
         position: new google.maps.LatLng(dotData[0].position.lat, dotData[0].position.lng),
         map: astoriaMap,
         icon: myDot
     });
 
-    // Add marker window (where pictures will live)
-    //var contentString =
-    //    //'<div style="width: 1000px; height:1000px; white-space: nowrap;">'+
-    //    '<div>'+
-    //    '<h1 style="float: left">Here is a picture!</h1>'+
-    //    '<img  style="float: left" style="display: inline-block;" src="img/downtown_astoria.png">'+
-    //    '<img  style="float: left" style="display: inline-block;" src="img/downtown_astoria.png">'+
-    //    '</div>';
-
+    // Define an info window for each dot
     var picWindow = new google.maps.InfoWindow({
         position: new google.maps.LatLng(dotData[0].position.lat, dotData[0].position.lng),
-        //position: astoriaMap.getCenter(),
-        content: dotData[0].content,
-        pixelOffset: 0
+        content: infoBoxHTML(dotData[0].loc,dotData[0].imgSrc)
     });
 
 
-
-    //
-    //var picLayer = new google.maps.TransitLayer();
-    //transitLayer.setMap(astoriaMap);
-
-    // Click listener
+    // Click listener to open info window
     new google.maps.event.addListener(dotMarker, 'click', function() {
         userPos = astoriaMap.getCenter();
         picWindow.open(astoriaMap);
 
     });
 
+    // Click listener to reposition map following info window closure
     new google.maps.event.addListener(picWindow, 'closeclick', function() {
         astoriaMap.setCenter(userPos);
     });
 
-
-
-    //new google.maps.event.addListener(picWindow, 'close', function() {
-    //    picWindow.close(astoriaMap);
-    //    //astoriaMap.setCenter(latlng:userPos);
-    //});
 
 }
 
