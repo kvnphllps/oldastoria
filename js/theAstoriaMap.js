@@ -1,6 +1,7 @@
 /**
  * Created by kevinGphillips on 6/29/15.
  */
+var userPos;
 
 function initializeMap() {
 
@@ -85,12 +86,22 @@ function initializeMap() {
     //transitLayer.setMap(astoriaMap);
 
     // Click listener
-    google.maps.event.addListener(dotMarker, 'click', function() {
+    new google.maps.event.addListener(dotMarker, 'click', function() {
+        userPos = astoriaMap.getCenter();
         picWindow.open(astoriaMap);
-        //map.setCenter(dotMarker.getPosition());
+
+    });
+
+    new google.maps.event.addListener(picWindow, 'closeclick', function() {
+        astoriaMap.setCenter(userPos);
     });
 
 
+
+    //new google.maps.event.addListener(picWindow, 'close', function() {
+    //    picWindow.close(astoriaMap);
+    //    //astoriaMap.setCenter(latlng:userPos);
+    //});
 
 }
 
