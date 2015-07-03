@@ -57,7 +57,8 @@ function initializeMap() {
 
     var markers = [];
 
-    for (var i = 0; i < dotData.length, i++) {
+    // loop through dotdata
+    for (var i = 0; i < dotData.length; i++) {
 
         // Display custom dot on the map
         var dotMarker = new google.maps.Marker({
