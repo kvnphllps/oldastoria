@@ -165,44 +165,44 @@ function initialize() {
     }
     var map = new google.maps.Map(document.getElementById("canvas-map"), myOptions);
 
-    //var data = [ // map data
-    //    {
-    //        'id':1,
-    //        'content':'Hello my name is marker, I\'m from Google',
-    //        'position': {
-    //            'lat':46,
-    //            'lng':-123
-    //        }
-    //    },
-    //    {
-    //        'id':2,
-    //        'content':'I am the content of this infobox. Wow, what a text.<br><br><a href="#">The good thing is: Tags are also possible</a>',
-    //        'position': {
-    //            'lat':45,
-    //            'lng':-123
-    //        }
-    //    },
-    //]
-    //
-    //for (var i = 0; i < data.length; i++) {
-    //    var current = data[i];
-    //
-    //    var marker = new google.maps.Marker({
-    //        position: new google.maps.LatLng(current.position.lat, current.position.lng),
-    //        map: map,
-    //        content: current.content
-    //    });
-    //
-    //    markers.push(marker);
-    //
-    //    google.maps.event.addListener(markers[i], "click", function (e) {
-    //        var infoBox = new InfoBox({
-    //            latlng: this.getPosition(),
-    //            map: map,
-    //            content: this.content
-    //        });
-    //    });
-    //}
+    var data = [ // map data
+        {
+            'id':1,
+            'content':'Hello my name is marker, I\'m from Google',
+            'position': {
+                'lat':46,
+                'lng':-123
+            }
+        },
+        {
+            'id':2,
+            'content':'I am the content of this infobox. Wow, what a text.<br><br><a href="#">The good thing is: Tags are also possible</a>',
+            'position': {
+                'lat':45,
+                'lng':-123
+            }
+        },
+    ]
+
+    for (var i = 0; i < data.length; i++) {
+        var current = data[i];
+
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(current.position.lat, current.position.lng),
+            map: map,
+            content: current.content
+        });
+
+        markers.push(marker);
+
+        google.maps.event.addListener(markers[i], "click", function (e) {
+            var infoBox = new InfoBox({
+                latlng: this.getPosition(),
+                map: map,
+                content: this.content
+            });
+        });
+    }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

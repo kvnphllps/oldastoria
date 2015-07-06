@@ -38,17 +38,25 @@ var dotData = [
             lat: 46.18966929,
             lng: -123.83172154
         }
-    },{
+    }, {
         id: 2,
         timeEra: 'bf',//before fire = bf, after fire = af
         loc: 'Marine Dr. & 10th St.',
+        imgSrc: 'image_id_001',
+        position: {
+            lat: 46.18966929,
+            lng: -123.83271154
+        },
+    },
+    {
+        id: 3,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Marine Dr. & 9th St.',
         imgSrc : 'image_id_001',
         position: {
             lat: 46.18966929,
-            lng: -123.83172154
+            lng: -123.83370154
         }
     }
-
-
 
 ];

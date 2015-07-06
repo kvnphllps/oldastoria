@@ -51,49 +51,78 @@ function initializeMap() {
     ];
     astoriaMap.setOptions({styles: noPoi});
 
-    // Define our dot for each location on map where we have a photo
-    var myDot = { url: 'img/dot.png', scaledSize: new google.maps.Size(9, 9) };
 
+    // Define our dot for each location on map where we have a photo
+    var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(5, 5)};
 
     var markers = [];
+    var picWindows = [];
 
     // loop through dotdata
     for (var i = 0; i < dotData.length; i++) {
 
         // Display custom dot on the map
-        var dotMarker = new google.maps.Marker({
+        var dotMarker = new google.maps.Marker(
+            {
             position: new google.maps.LatLng(dotData[i].position.lat, dotData[i].position.lng),
             map: astoriaMap,
-            icon: myDot
-        });
+            icon: myDot,
+            content: infoBoxHTML(dotData[i]['loc'], dotData[i].imgSrc)
+            }
+        );
 
         markers.push(dotMarker);
 
-        // Define an info window for each dot
-        var picWindow = new google.maps.InfoWindow({
-            position: new google.maps.LatLng(dotData[i].position.lat, dotData[i].position.lng),
-            content: infoBoxHTML(dotData[i].loc, dotData[i].imgSrc)
-        });
 
+        //var picWindow = new google.maps.InfoWindow({
+        //    position: new google.maps.LatLng(dotData[i].position.lat, dotData[i].position.lng),
+        //    //position: this.getPosition(),
+        //    content: infoBoxHTML(dotData[i]['loc'], dotData[i].imgSrc)
+        //});
+        //
+        //picWindows.push(picWindow);
 
         // In the process of making an array of markers and displaying dots for those.
 
         // Click listener to open info window
         new google.maps.event.addListener(markers[i], 'click', function () {
+
+            // Get current position to pan map back to start loc.
             userPos = astoriaMap.getCenter();
+
+            // Define an info window for each dot
+            var picWindow = new google.maps.InfoWindow(
+                {
+                position: this.position,
+                content: this.content
+                }
+            );
+
             picWindow.open(astoriaMap);
+
+            new google.maps.event.addListener(picWindow, 'closeclick', function () {
+                astoriaMap.setCenter(userPos);
+            });
 
         });
 
         // Do we need an array for the info windows?
 
+
+        //if (mapOptions.zoom === mapMinZoom) {
+        //    var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(5, 5)};
+        //} else {
+        //    var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(9, 9)};
+        //}
+
         // Click listener to reposition map following info window closure
-        new google.maps.event.addListener(picWindow, 'closeclick', function () {
-            astoriaMap.setCenter(userPos);
-        });
+
+
     }
+
 
 }
 
 // Initialize the map in the DOM upon window load.
 google.maps.event.addDomListener(window, 'load', initializeMap);
+
