@@ -90,25 +90,6 @@ function initializeMap() {
         });
 
 
-        //new google.maps.event.addListener(astoriaMap, 'zoom_changed', function(){
-        //
-        //    var zoomLevel = astoriaMap.getZoom();
-        //    // Zoom listener to determine dot size based on zoom
-        //    if (zoomLevel === mapMinZoom) {
-        //        var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(5, 5)};
-        //    } else {
-        //        var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(9, 9)};
-        //    }
-        //
-        //    for (var i = 0; i < dotData.length; i++){
-        //        markers[i].icon = myDot;
-        //    }
-        //
-        //});
-
-
-
-
         // Click listener for info windows
         new google.maps.event.addListener(markers[i], 'click', function () {
 
