@@ -83,10 +83,7 @@ function initializeMap() {
                 var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(7, 7)};
             }
 
-
-            dotMarker.setIcon(myDot); // works, but only for last dot
             for (var i = 0; i < markers.length; i++) {
-                console.log(myDot.scaledSize);
                 markers[i].setIcon(myDot);
             }
 
