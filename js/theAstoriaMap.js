@@ -52,7 +52,7 @@ function initializeMap() {
     astoriaMap.setOptions({styles: noPoi});
 
 
-    // Define our dot for each location on map where we have a photo
+    // Define our default dot for each location on map where we have a photo
     var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(5, 5)};
     var markers = [];
 
@@ -71,6 +71,7 @@ function initializeMap() {
 
         markers.push(dotMarker);
 
+        // Zoom listener: optimize dot size for a given zoom.
         new google.maps.event.addListener(astoriaMap, 'zoom_changed', function() {
 
             var zoomLevel = astoriaMap.getZoom();
@@ -89,12 +90,51 @@ function initializeMap() {
 
         });
 
+        // Mouse over listener for the dots.
+        new google.maps.event.addListener(markers[i], 'mouseover', function () {
+
+
+            var zoomLevel = astoriaMap.getZoom();
+            // Zoom listener to determine dot size based on zoom
+            if (zoomLevel === mapMinZoom) {
+                myDot = {url: 'img/dot_yellow.png', scaledSize: new google.maps.Size(5, 5)};
+            } else if (zoomLevel === mapMaxZoom) {
+                myDot = {url: 'img/dot_yellow.png', scaledSize: new google.maps.Size(10, 10)};
+            } else {
+                myDot = {url: 'img/dot_yellow.png', scaledSize: new google.maps.Size(7, 7)};
+            }
+
+            this.setIcon(myDot);
+
+
+        });
+
+        // Mouse over listener for the dots.
+        new google.maps.event.addListener(markers[i], 'mouseout', function () {
+
+
+            var zoomLevel = astoriaMap.getZoom();
+            // Zoom listener to determine dot size based on zoom
+            if (zoomLevel === mapMinZoom) {
+                myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(5, 5)};
+            } else if (zoomLevel === mapMaxZoom) {
+                myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(10, 10)};
+            } else {
+                myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(7, 7)};
+            }
+
+            this.setIcon(myDot);
+
+
+        });
+
 
         // Click listener for info windows
         new google.maps.event.addListener(markers[i], 'click', function () {
 
             // Get current position to pan map back to start loc.
             userPos = astoriaMap.getCenter();
+
 
             // Define an info window for each dot
             var picWindow = new google.maps.InfoWindow(
@@ -109,8 +149,13 @@ function initializeMap() {
 
             // Shift map back to user's previous location following close click of info window.
             new google.maps.event.addListener(picWindow, 'closeclick', function () {
+
                 astoriaMap.setCenter(userPos);
+
+
+
             });
+
 
         });
 
