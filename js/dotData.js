@@ -477,6 +477,86 @@ var dotData = [
             lat: 46.184940,
             lng: -123.828198
         }
+    },
+    {
+        id: 47,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Marine Dr. & 15th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.189360,
+            lng: -123.827301
+        }
+    },
+    {
+        id: 48,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Commercial St. & 15th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.189074,
+            lng: -123.827237
+        }
+    },
+    {
+        id: 49,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Commercial St. & 15th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.189074,
+            lng: -123.827237
+        }
+    },
+    {
+        id: 50,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Duane St. & 15th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.188565,
+            lng: -123.827151
+        }
+    },
+    {
+        id: 51,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Exchange St. & 15th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.188060,
+            lng: -123.827089
+        }
+    },
+    {
+        id: 52,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Franklin Ave. & 15th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.187078,
+            lng: -123.826998
+        }
+    },
+    {
+        id: 53,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Grand Ave. & 15th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186083,
+            lng: -123.826888
+        }
+    },
+    {
+        id: 54,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Irving Ave. & 15th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.185106,
+            lng: -123.826770
+        }
     }
 
 ];
