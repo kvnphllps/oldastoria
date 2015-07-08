@@ -334,8 +334,58 @@ var dotData = [
         loc: 'Bond St. & 7th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.189797,
-            lng: -123.835689
+            lat: 46.189697,
+            lng: -123.835669
+        }
+    },
+    {
+        id: 32,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Commercial St. & 7th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.189019,
+            lng: -123.835670
+        }
+    },
+    {
+        id: 33,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Duane St. & 7th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.188350,
+            lng: -123.835711
+        }
+    },
+    {
+        id: 34,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Exchange St. & 7th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.187685,
+            lng: -123.835732
+        }
+    },
+    {
+        id: 35,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Franklin Ave. & 7th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186964,
+            lng: -123.835721
+        }
+    },
+    {
+        id: 36,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Grand Ave. & 7th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186271,
+            lng: -123.835753
         }
     }
 
