@@ -187,7 +187,158 @@ var dotData = [
             lat: 46.187615,
             lng: -123.833752
         }
+    },
+    {
+        id: 17,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Franklin Ave. & 12th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186872,
+            lng: -123.830255
+        }
+    },
+    {
+        id: 18,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Franklin Ave. & 11th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186894,
+            lng: -123.831822
+        }
+    },
+    {
+        id: 19,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Franklin Ave. & 10th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186914,
+            lng: -123.832767
+        }
+    },
+    {
+        id: 20,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Franklin Ave. & 9th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186934,
+            lng: -123.833776
+        }
+    },
+    {
+        id: 21,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Grand Ave. & 12th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186175,
+            lng: -123.830255
+        }
+    },
+    {
+        id: 22,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Grand Ave. & 11th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186208,
+            lng: -123.831848
+        }
+    },
+    {
+        id: 23,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Grand Ave. & 10th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186220,
+            lng: -123.832803
+        }
+    },
+    {
+        id: 24,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Grand Ave. & 9th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186250,
+            lng: -123.833801
+        }
+    },
+    {
+        id: 25,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Marine Dr. & 8th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.189674,
+            lng: -123.834691
+        }
+    },
+    {
+        id: 26,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Commercial St. & 8th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.188993,
+            lng: -123.834691
+        }
+    },
+    {
+        id: 27,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Duane St. & 8th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.188355,
+            lng: -123.834725
+        }
+    },
+    {
+        id: 28,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Exchange St. & 8th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.187654,
+            lng: -123.834745
+        }
+    },
+    {
+        id: 29,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Franklin Ave. & 8th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186986,
+            lng: -123.834766
+        }
+    },
+    {
+        id: 30,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Grand Ave. & 8th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186258,
+            lng: -123.834777
+        }
+    },
+    {
+        id: 31,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Bond St. & 7th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.189797,
+            lng: -123.835689
+        }
     }
 
 ];
+
 
