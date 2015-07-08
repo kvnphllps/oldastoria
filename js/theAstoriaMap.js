@@ -26,7 +26,7 @@ function initializeMap() {
         disableDefaultUI: true,
         zoomControl: true,
         zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.SMALL
+            style: google.maps.ZoomControlStyle.MEDIUM
         },
         panControl: true
     };

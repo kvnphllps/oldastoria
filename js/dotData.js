@@ -387,6 +387,96 @@ var dotData = [
             lat: 46.186271,
             lng: -123.835753
         }
+    },
+    {
+        id: 38,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Duane St. & 13th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.188274,
+            lng: -123.829423
+        }
+    },
+    {
+        id: 39,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Exchange St. & Exchange St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.187828,
+            lng: -123.829377
+        }
+    },
+    {
+        id: 40,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Marine Dr. & 14th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.189538,
+            lng: -123.828688
+        }
+    },
+    {
+        id: 41,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Commercial St. & 14th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.188899,
+            lng: -123.828621
+        }
+    },
+    {
+        id: 42,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Duane St. & 14th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.188396,
+            lng: -123.828565
+        }
+    },
+    {
+        id: 43,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Exchange St. & 14th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.187893,
+            lng: -123.828495
+        }
+    },
+    {
+        id: 44,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Franklin Ave. & 14th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.186897,
+            lng: -123.828400
+        }
+    },
+    {
+        id: 45,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Grand Ave. & 14th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.185950,
+            lng: -123.828299
+        }
+    },
+    {
+        id: 46,
+        timeEra: 'bf',//before fire = bf, after fire = af
+        loc: 'Irving Ave. & 14th St.',
+        imgSrc : 'image_id_001',
+        position: {
+            lat: 46.184940,
+            lng: -123.828198
+        }
     }
 
 ];
