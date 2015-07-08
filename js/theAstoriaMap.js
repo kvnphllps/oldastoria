@@ -64,7 +64,7 @@ function initializeMap() {
                 position : new google.maps.LatLng(dotData[i].position.lat, dotData[i].position.lng),
                 map : astoriaMap,
                 icon : myDot,
-                content : infoBoxHTML(dotData[i]['loc'], dotData[i].imgSrc)
+                content : infoBoxHTML(dotData[i]['id'], dotData[i].imgSrc)
             }
 
         );
