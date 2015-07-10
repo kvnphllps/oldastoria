@@ -484,8 +484,8 @@ var dotData = [
         loc: 'Marine Dr. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.189360,
-            lng: -123.827301
+            lat: 46.189290,
+            lng: -123.827341
         }
     },
     {
@@ -494,67 +494,57 @@ var dotData = [
         loc: 'Commercial St. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.189074,
+            lat: 46.188974,
             lng: -123.827237
         }
     },
     {
         id: 49,
         timeEra: 'bf',//before fire = bf, after fire = af
-        loc: 'Commercial St. & 15th St.',
+        loc: 'Duane St. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.189074,
-            lng: -123.827237
+            lat: 46.188465,
+            lng: -123.827151
         }
     },
     {
         id: 50,
         timeEra: 'bf',//before fire = bf, after fire = af
-        loc: 'Duane St. & 15th St.',
+        loc: 'Exchange St. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188565,
-            lng: -123.827151
+            lat: 46.187960,
+            lng: -123.827109
         }
     },
     {
         id: 51,
         timeEra: 'bf',//before fire = bf, after fire = af
-        loc: 'Exchange St. & 15th St.',
+        loc: 'Franklin Ave. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188060,
-            lng: -123.827089
+            lat: 46.186978,
+            lng: -123.826998
         }
     },
     {
         id: 52,
         timeEra: 'bf',//before fire = bf, after fire = af
-        loc: 'Franklin Ave. & 15th St.',
+        loc: 'Grand Ave. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.187078,
-            lng: -123.826998
+            lat: 46.185983,
+            lng: -123.826888
         }
     },
     {
         id: 53,
         timeEra: 'bf',//before fire = bf, after fire = af
-        loc: 'Grand Ave. & 15th St.',
-        imgSrc : 'image_id_001',
-        position: {
-            lat: 46.186083,
-            lng: -123.826888
-        }
-    },
-    {
-        id: 54,
-        timeEra: 'bf',//before fire = bf, after fire = af
         loc: 'Irving Ave. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.185106,
+            lat: 46.185006,
             lng: -123.826770
         }
     }
