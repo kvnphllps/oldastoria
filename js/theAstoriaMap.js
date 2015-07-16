@@ -19,7 +19,7 @@ function initializeMap() {
     // Set Map properties: terrain map with a default zoom of 14
     var mapOptions = {
         center: defPos,
-        zoom: mapMaxZoom,
+        zoom: mapMinZoom,
         minZoom: mapMinZoom,
         maxZoom: mapMaxZoom,
         mapTypeId: google.maps.MapTypeId.TERRAIN,
@@ -53,8 +53,8 @@ function initializeMap() {
 
 
     // Define our default dot for each location on map where we have a photo
-    //var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(5, 5)};
-    var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(10, 10)};
+    var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(5, 5)};
+    //var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(10, 10)};
     var markers = [];
 
     // loop through dotdata and draw dots, info windows
