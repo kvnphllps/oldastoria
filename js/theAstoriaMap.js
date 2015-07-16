@@ -127,10 +127,13 @@ function initializeMap() {
 
         });
 
-
         // Use jQuery for overlay
         var $overlay = $("<div id = 'overlay'></div>"); // jQuery object assigned to variable, begin var name with $ sign.
+        var $closeButton = $('<button id = "closeButton">&times</button>');
         var $image = $("<img/>");
+
+        // Add the button to the overlay
+        $overlay.append($closeButton);
 
         // Add an image to our overlay
         $overlay.append($image);
@@ -153,8 +156,8 @@ function initializeMap() {
 
             $overlay.show();
 
-            $overlay.click(function () {
-                    $(this).hide();
+            $closeButton.click(function () {
+                    $overlay.hide();
             });
 
          });
