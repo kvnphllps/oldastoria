@@ -132,14 +132,14 @@ function initializeMap() {
         var $overlay = $("<div id = 'overlay'></div>"); // jQuery object assigned to variable, begin var name with $ sign.
         var $image = $("<img/>");
 
+        // Add an image to our overlay
+        $overlay.append($image);
+
+        // Add an overlay to the body
+        $("body").append($overlay);
+
         // Click listener for dots: show overlay on a click
         new google.maps.event.addListener(markers[i], 'click', function () {
-
-            // Add an image to our overlay
-            $overlay.append($image);
-
-            // Add an overlay to the body
-            $("body").append($overlay);
 
             // Get image information from the click
 
@@ -151,7 +151,7 @@ function initializeMap() {
                 //        alt: getAlt
                 //    });
 
-            $image.show();
+            $overlay.show();
 
             $overlay.click(function () {
                     $(this).hide();
