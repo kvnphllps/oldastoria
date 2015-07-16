@@ -91,7 +91,7 @@ function initializeMap() {
 
         });
 
-        // Mouse over listener for the dots.
+        // Mouse over listener for the dots: turn yellow on a mouseover.
         new google.maps.event.addListener(markers[i], 'mouseover', function () {
 
             var zoomLevel = astoriaMap.getZoom();
@@ -107,12 +107,10 @@ function initializeMap() {
 
             this.setIcon(myDot);
 
-
         });
 
-        // Mouse out listener for the dots: make them red again...
+        // Mouseout listener for the dots: make them red again.
         new google.maps.event.addListener(markers[i], 'mouseout', function () {
-
 
             var zoomLevel = astoriaMap.getZoom();
             myDot.url = 'img/dot.png';
@@ -127,46 +125,41 @@ function initializeMap() {
 
             this.setIcon(myDot);
 
-
         });
 
 
-        // Click listener for info windows
+        // Use jQuery for overlay
+        var $overlay = $("<div id = 'overlay'></div>"); // jQuery object assigned to variable, begin var name with $ sign.
+        var $image = $("<img/>");
+
+        // Click listener for dots: show overlay on a click
         new google.maps.event.addListener(markers[i], 'click', function () {
 
-            // Get current position to pan map back to start loc.
-            userPos = astoriaMap.getCenter();
+            // Add an image to our overlay
+            $overlay.append($image);
 
+            // Add an overlay to the body
+            $("body").append($overlay);
 
-            // Define an info window for each dot
-            var picWindow = new google.maps.InfoWindow(
-                {
-                position: this.position,
-                content: this.content
-                }
-            );
+            // Get image information from the click
 
-            // Open the picture window once clicked
-            picWindow.open(astoriaMap);
+                //getHref = this.imgSrc;
+                //getAlt = this.loc;
+                //console.log(this.content.);
+                //$image.attr({
+                //        src: getHref,
+                //        alt: getAlt
+                //    });
 
-            // Shift map back to user's previous location following close click of info window.
-            new google.maps.event.addListener(picWindow, 'closeclick', function () {
+            $image.show();
 
-                astoriaMap.setCenter(userPos);
-
-
-
+            $overlay.click(function () {
+                    $(this).hide();
             });
 
-
-        });
-
-
-
+         });
 
     }
-
-
 }
 
 // Initialize the map in the DOM upon window load.
