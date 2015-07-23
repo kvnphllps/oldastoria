@@ -65,7 +65,9 @@ function initializeMap() {
                 position : new google.maps.LatLng(dotData[i].position.lat, dotData[i].position.lng),
                 map : astoriaMap,
                 icon : myDot,
-                content : infoBoxHTML(dotData[i]['id'], dotData[i].imgSrc)
+                content : infoBoxHTML(dotData[i]['id'], dotData[i].imgSrc),
+                id: dotData[i]['id'],
+                imgSrc : dotData[i].imgSrc
             }
 
         );
@@ -130,13 +132,13 @@ function initializeMap() {
         // Use jQuery for overlay
         var $overlay = $("<div id = 'overlay'></div>"); // jQuery object assigned to variable, begin var name with $ sign.
         var $closeButton = $('<button id = "closeButton">&times</button>');
-        var $image = $("<img/>");
+        //var $image = $("<img/>");
 
         // Add the button to the overlay
         $overlay.append($closeButton);
 
         // Add an image to our overlay
-        $overlay.append($image);
+        //$overlay.append($image);
 
         // Add an overlay to the body
         $("body").append($overlay);
@@ -154,6 +156,8 @@ function initializeMap() {
                 //        alt: getAlt
                 //    });
 
+            $overlay.append(this.content);
+            console.log('id: ' + this.id + ' imgSrc: ' + this.imgSrc);
             $overlay.show();
 
             $closeButton.click(function () {

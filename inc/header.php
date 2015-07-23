@@ -22,8 +22,8 @@
     </div>
     <nav>
         <ul>
-            <li><a href="#">Before the fire of 1922</a></li>
-            <li><a href="#">After 1922</a></li>
+<!--            <li><a href="#">Before the fire of 1922</a></li>-->
+<!--            <li><a href="#">After 1922</a></li>-->
             <li><a href="#">About</a></li>
             <li><a href="#">Feedback</a></li>
         </ul>
