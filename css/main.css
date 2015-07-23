@@ -93,7 +93,7 @@ nav li{
     top:0;
     left:0;
     display:none;
-    text-align:center;
+    /*text-align:center;*/
 }
 
 #closeButton {
@@ -109,4 +109,31 @@ nav li{
 #closeButton:hover {
     /*color: #ffe07b ;*/
     color: darkgray;
+}
+
+#cchsIcon {
+    max-width: 27%;
+    max-height: 27%;
+    margin-top: 37.5%;
+    margin-right: 72.5%;
+}
+
+#picTitle {
+    margin-left: 30%;
+    margin-top: 50%;
+}
+
+#currPics {
+    display: block;
+    position: absolute;
+    margin-left: 30%;
+    margin-top: -50%;
+    z-index: 1000;
+}
+
+
+
+#currPics img {
+    max-width: 70%;
+    max-height: 70%;
 }

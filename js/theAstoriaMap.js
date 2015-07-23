@@ -65,7 +65,7 @@ function initializeMap() {
                 position : new google.maps.LatLng(dotData[i].position.lat, dotData[i].position.lng),
                 map : astoriaMap,
                 icon : myDot,
-                content : infoBoxHTML(dotData[i]['id'], dotData[i].imgSrc),
+                content : infoBoxHTML(dotData[i]['loc'], dotData[i].imgSrc),
                 id: dotData[i]['id'],
                 imgSrc : dotData[i].imgSrc
             }
@@ -132,13 +132,17 @@ function initializeMap() {
         // Use jQuery for overlay
         var $overlay = $("<div id = 'overlay'></div>"); // jQuery object assigned to variable, begin var name with $ sign.
         var $closeButton = $('<button id = "closeButton">&times</button>');
+        var $cchsIco = $('<img id = "cchsIcon" src = "img/cchs_icon.png">');
         //var $image = $("<img/>");
+
+
+
 
         // Add the button to the overlay
         $overlay.append($closeButton);
 
-        // Add an image to our overlay
-        //$overlay.append($image);
+        // Add cchs icon to our overlay
+        $overlay.append($cchsIco);
 
         // Add an overlay to the body
         $("body").append($overlay);
@@ -146,23 +150,20 @@ function initializeMap() {
         // Click listener for dots: show overlay on a click
         new google.maps.event.addListener(markers[i], 'click', function () {
 
+            var $currImages = this.content;
             // Get image information from the click
-
-                //getHref = this.imgSrc;
-                //getAlt = this.loc;
-                //console.log(this.content.);
-                //$image.attr({
-                //        src: getHref,
-                //        alt: getAlt
-                //    });
-
-            $overlay.append(this.content);
-            console.log('id: ' + this.id + ' imgSrc: ' + this.imgSrc);
+            $overlay.append($currImages);
+            //console.log('id: ' + this.id + ' imgSrc: ' + this.imgSrc);
             $overlay.show();
 
-            $closeButton.click(function () {
-                    $overlay.hide();
+            $closeButton.on('click', function (e) {
+
+                $overlay.hide();
+                $(this).next().next().remove(); //ugly but works!
             });
+
+
+
 
          });
 

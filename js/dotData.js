@@ -11,8 +11,8 @@
 
 
 function infoBoxHTML(id, imgSrc){
-    var html = '<div>'
-        + '<h1 style="float: left">' + id + '</h1>'
+    var html = '<div id="currPics">'
+        + '<h2>' + id + '</h2>' + '<br>'
         + '<img style = "float: left; display: inline-block" src = img/' + imgSrc + '.png>'
         + '</div>';
     return html;
