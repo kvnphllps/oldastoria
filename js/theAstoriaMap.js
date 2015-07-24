@@ -129,45 +129,37 @@ function initializeMap() {
 
         });
 
-        // Use jQuery for overlay
-        var $overlay = $("<div id = 'overlay'></div>"); // jQuery object assigned to variable, begin var name with $ sign.
+        // Overlay
+        var $overlay = $("<div id = 'overlay'></div>");
+        var $gePrev = $("<ul id='og-grid' class='og-grid'></ul>");
         var $closeButton = $('<button id = "closeButton">&times</button>');
         var $cchsIco = $('<img id = "cchsIcon" src = "img/cchs_icon.png">');
-        //var $image = $("<img/>");
 
-
-
-
-        // Add the button to the overlay
+        // Build Overlay
         $overlay.append($closeButton);
-
         // Add cchs icon to our overlay
         $overlay.append($cchsIco);
-
         // Add an overlay to the body
         $("body").append($overlay);
 
         // Click listener for dots: show overlay on a click
         new google.maps.event.addListener(markers[i], 'click', function () {
 
-            var $currImages = this.content;
+            var $currImages = this.content; // this will need to be an li a img for each image source found
             // Get image information from the click
             $overlay.append($currImages);
             //console.log('id: ' + this.id + ' imgSrc: ' + this.imgSrc);
             $overlay.show();
 
             $closeButton.on('click', function (e) {
-
                 $overlay.hide();
                 $(this).next().next().remove(); //ugly but works!
             });
 
-
-
-
          });
 
     }
+
 }
 
 // Initialize the map in the DOM upon window load.
