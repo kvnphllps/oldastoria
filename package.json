@@ -1,0 +1,33 @@
+{
+  "name": "oldastoria_node",
+  "version": "1.0.0",
+  "description": "mapping of historical photos of astoria, or",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvnphllps/oldastoria_node.git"
+  },
+  "keywords": [
+    "google",
+    "maps",
+    "api",
+    "node.js",
+    "jquery",
+    "historical",
+    "photos"
+  ],
+  "author": "kevin phillips",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kvnphllps/oldastoria_node/issues"
+  },
+  "homepage": "https://github.com/kvnphllps/oldastoria_node#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "jquery": "^2.1.4",
+    "mocha": "^2.2.5"
+  }
+}
