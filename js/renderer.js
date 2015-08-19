@@ -3,7 +3,7 @@
 ///////////////////
 var fs = require("fs");
 
-
+// html renderer
 function view (templateName, values, response) {
   // read HTML from the views directory
   var fileContents = fs.readFileSync('views/' + templateName + '.html', {encoding: "utf8"});
@@ -12,6 +12,7 @@ function view (templateName, values, response) {
   response.write(fileContents);
 }
 
+// css renderer
 function style (templateName, response) {
     // read HTML from the views directory
     var fileContents = fs.readFileSync('css/' + templateName + '.css');
@@ -20,6 +21,7 @@ function style (templateName, response) {
     response.write(fileContents);
 }
 
+// css renderer
 function javaScript (templateName, response) {
     // read HTML from the views directory
     var fileContents = fs.readFileSync('js/' + templateName + '.js');
@@ -28,6 +30,7 @@ function javaScript (templateName, response) {
     response.write(fileContents);
 }
 
+// img renderer
 function imgPNG (templateName, response) {
     // read HTML from the views directory
     var fileContents = fs.readFileSync('img/' + templateName + '.png');

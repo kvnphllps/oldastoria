@@ -33,6 +33,7 @@ function home (request, response) {
       ////////////////////
       response.writeHead(200, htmlHeader);
       renderer.view("header", {}, response);
+      renderer.view("maps_api_key", {}, response);
       renderer.view("map", {}, response);
       renderer.view("footer", {}, response);
     } else {
@@ -52,7 +53,11 @@ function home (request, response) {
     ////////////////////
     // home view js  //
     ////////////////////
+  else if (request.url === '/js/map_api_config.js'){
+      response.writeHead(200, jsHeader);
+      renderer.javaScript("map_api_config", response);
 
+  }
   else if (request.url === '/js/dotData.js'){
       response.writeHead(200, jsHeader);
       renderer.javaScript("dotData", response);
