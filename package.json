@@ -1,6 +1,6 @@
 {
   "name": "oldastoria_node",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "mapping of historical photos of astoria, or",
   "main": "app.js",
   "scripts": {

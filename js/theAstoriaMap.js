@@ -2,24 +2,28 @@
  * Created by kevinGphillips on 6/29/15.
  */
 
-
 var userPos;
 
 function initializeMap() {
 
-    // Define default position
-    var defPos = new google.maps.LatLng(46.183, -123.82251);
+    // Define default position & dot size
 
+    // Defaults: zoom = 14
+    //var defPos = new google.maps.LatLng(46.183, -123.82251);
+    //var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(5, 5)};
+
+    // Defaults: zoom = 16
+    var defPos = new google.maps.LatLng(46.188285, -123.831776);
+    var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(10, 10)};
 
     // Bounds on zoom
     var mapMinZoom = 14;
     var mapMaxZoom = 16;
 
-
     // Set Map properties: terrain map with a default zoom of 14
     var mapOptions = {
         center: defPos,
-        zoom: mapMinZoom,
+        zoom: mapMaxZoom,
         minZoom: mapMinZoom,
         maxZoom: mapMaxZoom,
         mapTypeId: google.maps.MapTypeId.TERRAIN,
@@ -52,9 +56,6 @@ function initializeMap() {
     astoriaMap.setOptions({styles: noPoi});
 
 
-    // Define our default dot for each location on map where we have a photo
-    var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(5, 5)};
-    //var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(10, 10)};
     var markers = [];
 
     // loop through dotdata and draw dots, info windows
