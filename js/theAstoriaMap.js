@@ -15,18 +15,18 @@ function initializeMap() {
     var defPos = new google.maps.LatLng(46.188285, -123.831776);
 
     // use SVG as myDot
-    var myRedDot = {
+    var mySmallDot = {
         path: google.maps.SymbolPath.CIRCLE,
         strokeWeight: 2,
         fillColor: "#c1595a",
         fillOpacity: 1,
         strokeOpacity: 0.9,
         strokeColor:"#c1595a",
-        scale: 4,
-        offset: '0%'
+        scale: 5
+
     };
 
-    var myYellowDot = {
+    var myBigDot = {
         path: google.maps.SymbolPath.CIRCLE,
         strokeWeight: 4,
         fillColor:  "#c1595a",// "#ffe07b",
@@ -87,7 +87,7 @@ function initializeMap() {
             {
                 position : new google.maps.LatLng(dotData[i].position.lat, dotData[i].position.lng),
                 map : astoriaMap,
-                icon : myRedDot,
+                icon : mySmallDot,
                 content : infoBoxHTML(dotData[i]['loc'], dotData[i].imgSrc),
                 id: dotData[i]['id'],
                 imgSrc : dotData[i].imgSrc
@@ -101,14 +101,14 @@ function initializeMap() {
         // Mouse over listener for the dots: turn yellow on a mouseover.
         new google.maps.event.addListener(markers[i], 'mouseover', function () {
 
-            this.setIcon(myYellowDot);
+            this.setIcon(myBigDot);
 
         });
 
         // Mouseout listener for the dots: make them red again.
         new google.maps.event.addListener(markers[i], 'mouseout', function () {
 
-            this.setIcon(myRedDot);
+            this.setIcon(mySmallDot);
 
         });
 
@@ -128,6 +128,8 @@ function initializeMap() {
         // Click listener for dots: show overlay on a click
         new google.maps.event.addListener(markers[i], 'click', function () {
 
+
+
             var $currImages = this.content; // this will need to be an li a img for each image source found
             // Get image information from the click
             $overlay.append($currImages);
@@ -137,6 +139,7 @@ function initializeMap() {
             $closeButton.on('click', function (e) {
                 $overlay.hide();
                 $(this).next().next().remove(); //ugly but works!
+
             });
 
          });
