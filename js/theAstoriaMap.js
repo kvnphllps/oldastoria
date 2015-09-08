@@ -6,15 +6,37 @@ var userPos;
 
 function initializeMap() {
 
-    // Define default position & dot size
+    // Define default map centering
 
     // Defaults: zoom = 14
     //var defPos = new google.maps.LatLng(46.183, -123.82251);
-    //var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(5, 5)};
 
     // Defaults: zoom = 16
     var defPos = new google.maps.LatLng(46.188285, -123.831776);
-    var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(10, 10)};
+
+    // use SVG as myDot
+    var myRedDot = {
+        path: google.maps.SymbolPath.CIRCLE,
+        strokeWeight: 2,
+        fillColor: "#c1595a",
+        fillOpacity: 1,
+        strokeOpacity: 0.9,
+        strokeColor:"#c1595a",
+        scale: 4,
+        offset: '0%'
+    };
+
+    var myYellowDot = {
+        path: google.maps.SymbolPath.CIRCLE,
+        strokeWeight: 4,
+        fillColor:  "#c1595a",// "#ffe07b",
+        fillOpacity: 1.0,
+        strokeOpacity: 1.0,
+        strokeColor: "#c1595a",//"#ffe07b",
+        scale: 7,
+        offset: '0%'
+    };
+
 
     // Bounds on zoom
     var mapMinZoom = 14;
@@ -65,7 +87,7 @@ function initializeMap() {
             {
                 position : new google.maps.LatLng(dotData[i].position.lat, dotData[i].position.lng),
                 map : astoriaMap,
-                icon : myDot,
+                icon : myRedDot,
                 content : infoBoxHTML(dotData[i]['loc'], dotData[i].imgSrc),
                 id: dotData[i]['id'],
                 imgSrc : dotData[i].imgSrc
@@ -75,58 +97,18 @@ function initializeMap() {
 
         markers.push(dotMarker);
 
-        // Zoom listener: optimize dot size for a given zoom.
-        new google.maps.event.addListener(astoriaMap, 'zoom_changed', function() {
-
-            var zoomLevel = astoriaMap.getZoom();
-            // Zoom listener to determine dot size based on zoom
-            if (zoomLevel === mapMinZoom) {
-                var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(5, 5)};
-            } else if (zoomLevel === mapMaxZoom) {
-                var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(10, 10)};
-            } else {
-                var myDot = {url: 'img/dot.png', scaledSize: new google.maps.Size(7, 7)};
-            }
-
-            for (var i = 0; i < markers.length; i++) {
-                markers[i].setIcon(myDot);
-            }
-
-        });
 
         // Mouse over listener for the dots: turn yellow on a mouseover.
         new google.maps.event.addListener(markers[i], 'mouseover', function () {
 
-            var zoomLevel = astoriaMap.getZoom();
-            myDot.url = 'img/dot_yellow.png';
-            // Zoom listener to determine dot size based on zoom
-            if (zoomLevel === mapMinZoom) {
-                myDot.scaledSize = new google.maps.Size(5,5);
-            } else if (zoomLevel === mapMaxZoom) {
-                myDot.scaledSize = new google.maps.Size(10,10);
-            } else {
-                myDot.scaledSize = new google.maps.Size(7,7);
-            }
-
-            this.setIcon(myDot);
+            this.setIcon(myYellowDot);
 
         });
 
         // Mouseout listener for the dots: make them red again.
         new google.maps.event.addListener(markers[i], 'mouseout', function () {
 
-            var zoomLevel = astoriaMap.getZoom();
-            myDot.url = 'img/dot.png';
-            // Zoom listener to determine dot size based on zoom
-            if (zoomLevel === mapMinZoom) {
-                myDot.scaledSize = new google.maps.Size(5,5);
-            } else if (zoomLevel === mapMaxZoom) {
-                myDot.scaledSize = new google.maps.Size(10,10);
-            } else {
-                myDot.scaledSize = new google.maps.Size(7,7);
-            }
-
-            this.setIcon(myDot);
+            this.setIcon(myRedDot);
 
         });
 
