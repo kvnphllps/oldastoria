@@ -131,6 +131,8 @@ function initializeMap() {
         $("body").append($overlay);
 
         // Click listener for dots: show overlay on a click
+        // Todo: Grid expanding viewer!
+        // Todo: What if I don't have any photos for a given location? Make the dot turn yellow?
         new google.maps.event.addListener(markers[i], 'click', function () {
 
             var $currImages = this.content; // this will need to be an li a img for each image source found
