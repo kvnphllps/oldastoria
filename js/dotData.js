@@ -35,7 +35,7 @@ var dotData = [
         loc: 'Marine Dr. & 11th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.18966929,
+            lat: 46.1897300,
             lng: -123.83172154
         }
     }, {
@@ -44,7 +44,7 @@ var dotData = [
         loc: 'Marine Dr. & 10th St.',
         imgSrc: 'image_id_001',
         position: {
-            lat: 46.18966929,
+            lat: 46.18973980,
             lng: -123.83271154
         }
     },
@@ -54,7 +54,7 @@ var dotData = [
         loc: 'Marine Dr. & 9th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.18966929,
+            lat: 46.18975609,
             lng: -123.83370154
         }
     },
@@ -64,7 +64,7 @@ var dotData = [
         loc: 'Marine Dr. & 12th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.189603,
+            lat: 46.189693,
             lng: -123.830137
         }
     },
@@ -74,7 +74,7 @@ var dotData = [
         loc: 'Commercial St. & 12th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188950,
+            lat: 46.189030,
             lng: -123.830169
         }
     },
@@ -84,8 +84,8 @@ var dotData = [
         loc: 'Commercial St. & 11th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188982,
-            lng: -123.831743
+            lat: 46.189040,
+            lng: -123.831750
         }
     },
     {
@@ -94,7 +94,7 @@ var dotData = [
         loc: 'Commercial St. & 10th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188991,
+            lat: 46.189065,
             lng: -123.832710
         }
     },
@@ -104,7 +104,7 @@ var dotData = [
         loc: 'Commercial St. & 9th St.',
         imgSrc: 'image_id_001',
         position: {
-            lat: 46.189001,
+            lat: 46.189071,
             lng: -123.833720
         }
     },
@@ -114,7 +114,7 @@ var dotData = [
         loc: 'Duane St. & 12th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188239,
+            lat: 46.188350,
             lng: -123.830181
         }
     },
@@ -124,7 +124,7 @@ var dotData = [
         loc: 'Duane St. & 11th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188285,
+            lat: 46.188355,
             lng: -123.831776
         }
     },
@@ -134,7 +134,7 @@ var dotData = [
         loc: 'Duane St. & 10th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188291,
+            lat: 46.188391,
             lng: -123.832738
         }
     },
@@ -144,7 +144,7 @@ var dotData = [
         loc: 'Duane St. & 9th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188320,
+            lat: 46.188400,
             lng: -123.833734
         }
     },
@@ -154,8 +154,8 @@ var dotData = [
         loc: 'Exchange St. & 12th St.',
         imgSrc: 'image_id_001',
         position: {
-            lat: 46.187553,
-            lng: -123.830234
+            lat: 46.187643,
+            lng: -123.830204
         }
     },
     {
@@ -164,8 +164,8 @@ var dotData = [
         loc: 'Exchange St. & 11th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.187588,
-            lng: -123.831811
+            lat: 46.187658,
+            lng: -123.831789
         }
     },
     {
@@ -174,7 +174,7 @@ var dotData = [
         loc: 'Exchange St. & 10th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.187610,
+            lat: 46.187710,
             lng: -123.832766
         }
     },
@@ -184,7 +184,7 @@ var dotData = [
         loc: 'Exchange St. & 9th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.187615,
+            lat: 46.187715,
             lng: -123.833752
         }
     },
@@ -194,8 +194,8 @@ var dotData = [
         loc: 'Franklin Ave. & 12th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186872,
-            lng: -123.830255
+            lat: 46.186952,
+            lng: -123.830230
         }
     },
     {
@@ -204,7 +204,7 @@ var dotData = [
         loc: 'Franklin Ave. & 11th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186894,
+            lat: 46.186954,
             lng: -123.831822
         }
     },
@@ -214,7 +214,7 @@ var dotData = [
         loc: 'Franklin Ave. & 10th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186914,
+            lat: 46.186994,
             lng: -123.832767
         }
     },
@@ -224,8 +224,8 @@ var dotData = [
         loc: 'Franklin Ave. & 9th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186934,
-            lng: -123.833776
+            lat: 46.187015,
+            lng: -123.833796
         }
     },
     {
@@ -234,7 +234,7 @@ var dotData = [
         loc: 'Grand Ave. & 12th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186175,
+            lat: 46.186240,
             lng: -123.830255
         }
     },
@@ -244,7 +244,7 @@ var dotData = [
         loc: 'Grand Ave. & 11th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186208,
+            lat: 46.186228,
             lng: -123.831848
         }
     },
@@ -254,7 +254,7 @@ var dotData = [
         loc: 'Grand Ave. & 10th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186220,
+            lat: 46.186279,
             lng: -123.832803
         }
     },
@@ -264,7 +264,7 @@ var dotData = [
         loc: 'Grand Ave. & 9th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186250,
+            lat: 46.186290,
             lng: -123.833801
         }
     },
@@ -274,7 +274,7 @@ var dotData = [
         loc: 'Marine Dr. & 8th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.189674,
+            lat: 46.189774,
             lng: -123.834691
         }
     },
@@ -284,7 +284,7 @@ var dotData = [
         loc: 'Commercial St. & 8th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188993,
+            lat: 46.189090,
             lng: -123.834691
         }
     },
@@ -294,7 +294,7 @@ var dotData = [
         loc: 'Duane St. & 8th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188355,
+            lat: 46.188422,
             lng: -123.834725
         }
     },
@@ -304,7 +304,7 @@ var dotData = [
         loc: 'Exchange St. & 8th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.187654,
+            lat: 46.187722,
             lng: -123.834745
         }
     },
@@ -314,8 +314,8 @@ var dotData = [
         loc: 'Franklin Ave. & 8th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186986,
-            lng: -123.834766
+            lat: 46.187042,
+            lng: -123.834756
         }
     },
     {
@@ -324,7 +324,7 @@ var dotData = [
         loc: 'Grand Ave. & 8th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186258,
+            lat: 46.186308,
             lng: -123.834777
         }
     },
@@ -334,7 +334,7 @@ var dotData = [
         loc: 'Bond St. & 7th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.189697,
+            lat: 46.189787,
             lng: -123.835669
         }
     },
@@ -344,7 +344,7 @@ var dotData = [
         loc: 'Commercial St. & 7th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.189019,
+            lat: 46.189109,
             lng: -123.835670
         }
     },
@@ -354,7 +354,7 @@ var dotData = [
         loc: 'Duane St. & 7th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188350,
+            lat: 46.188410,
             lng: -123.835711
         }
     },
@@ -364,7 +364,7 @@ var dotData = [
         loc: 'Exchange St. & 7th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.187685,
+            lat: 46.187738,
             lng: -123.835732
         }
     },
@@ -374,7 +374,7 @@ var dotData = [
         loc: 'Franklin Ave. & 7th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186964,
+            lat: 46.1870355,
             lng: -123.835721
         }
     },
@@ -384,7 +384,7 @@ var dotData = [
         loc: 'Grand Ave. & 7th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186271,
+            lat: 46.186331,
             lng: -123.835753
         }
     },
@@ -394,7 +394,7 @@ var dotData = [
         loc: 'Duane St. & 13th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188274,
+            lat: 46.188374,
             lng: -123.829423
         }
     },
@@ -404,7 +404,7 @@ var dotData = [
         loc: 'Exchange St. & Exchange St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.187828,
+            lat: 46.187928,
             lng: -123.829377
         }
     },
@@ -414,7 +414,7 @@ var dotData = [
         loc: 'Marine Dr. & 14th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.189538,
+            lat: 46.189628,
             lng: -123.828688
         }
     },
@@ -424,7 +424,7 @@ var dotData = [
         loc: 'Commercial St. & 14th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188899,
+            lat: 46.188999,
             lng: -123.828621
         }
     },
@@ -434,7 +434,7 @@ var dotData = [
         loc: 'Duane St. & 14th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188396,
+            lat: 46.188496,
             lng: -123.828565
         }
     },
@@ -444,8 +444,8 @@ var dotData = [
         loc: 'Exchange St. & 14th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.187893,
-            lng: -123.828495
+            lat: 46.187993,
+            lng: -123.828505
         }
     },
     {
@@ -454,7 +454,7 @@ var dotData = [
         loc: 'Franklin Ave. & 14th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186897,
+            lat: 46.186994,
             lng: -123.828400
         }
     },
@@ -464,7 +464,7 @@ var dotData = [
         loc: 'Grand Ave. & 14th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.185950,
+            lat: 46.185990,
             lng: -123.828299
         }
     },
@@ -474,7 +474,7 @@ var dotData = [
         loc: 'Irving Ave. & 14th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.184940,
+            lat: 46.184999,
             lng: -123.828198
         }
     },
@@ -484,8 +484,8 @@ var dotData = [
         loc: 'Marine Dr. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.189290,
-            lng: -123.827341
+            lat: 46.189375,
+            lng: -123.827301
         }
     },
     {
@@ -494,7 +494,7 @@ var dotData = [
         loc: 'Commercial St. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188974,
+            lat: 46.189040,
             lng: -123.827237
         }
     },
@@ -504,7 +504,7 @@ var dotData = [
         loc: 'Duane St. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.188465,
+            lat: 46.188565,
             lng: -123.827151
         }
     },
@@ -514,8 +514,8 @@ var dotData = [
         loc: 'Exchange St. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.187960,
-            lng: -123.827109
+            lat: 46.188030,
+            lng: -123.827059
         }
     },
     {
@@ -524,7 +524,7 @@ var dotData = [
         loc: 'Franklin Ave. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.186978,
+            lat: 46.187050,
             lng: -123.826998
         }
     },
@@ -534,7 +534,7 @@ var dotData = [
         loc: 'Grand Ave. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.185983,
+            lat: 46.186050,
             lng: -123.826888
         }
     },
@@ -544,7 +544,7 @@ var dotData = [
         loc: 'Irving Ave. & 15th St.',
         imgSrc : 'image_id_001',
         position: {
-            lat: 46.185006,
+            lat: 46.185058,
             lng: -123.826770
         }
     }

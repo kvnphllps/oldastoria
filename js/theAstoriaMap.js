@@ -17,12 +17,12 @@ function initializeMap() {
     // use SVG as myDot
     var mySmallDot = {
         path: google.maps.SymbolPath.CIRCLE,
-        strokeWeight: 2,
+        strokeWeight: 0,
         fillColor: "#c1595a",
-        fillOpacity: 1,
-        strokeOpacity: 0.9,
+        fillOpacity: 0.5,
         strokeColor:"#c1595a",
-        scale: 5
+        strokeOpacity: 0.5,
+        scale: 9
 
     };
 
@@ -40,12 +40,13 @@ function initializeMap() {
 
     // Bounds on zoom
     var mapMinZoom = 14;
-    var mapMaxZoom = 16;
+    var mapMaxZoom = 17;
+    var defaultZoom = 16;
 
     // Set Map properties: terrain map with a default zoom of 14
     var mapOptions = {
         center: defPos,
-        zoom: mapMaxZoom,
+        zoom: defaultZoom,
         minZoom: mapMinZoom,
         maxZoom: mapMaxZoom,
         mapTypeId: google.maps.MapTypeId.TERRAIN,
@@ -88,7 +89,9 @@ function initializeMap() {
                 position : new google.maps.LatLng(dotData[i].position.lat, dotData[i].position.lng),
                 map : astoriaMap,
                 icon : mySmallDot,
-                content : infoBoxHTML(dotData[i]['loc'], dotData[i].imgSrc),
+                //content : infoBoxHTML(dotData[i]['loc'], dotData[i].imgSrc),
+                // Swap in "id" for dev.
+                content : infoBoxHTML(dotData[i]['id'], dotData[i].imgSrc),
                 id: dotData[i]['id'],
                 imgSrc : dotData[i].imgSrc
             }
