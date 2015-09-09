@@ -96,6 +96,37 @@ nav li{
     /*text-align:center;*/
 }
 
+#navOverlay {
+    background:rgba(242,242,242,1);
+    width:50%;
+    height:50%;
+    position:absolute;
+    top:10%;
+    left:25%;
+    display:none;
+    /*text-align:center;*/
+}
+
+#navOverlay a {
+    color: #c1595a;
+
+}
+
+#navOverlay a:hover {
+    font-style: oblique;
+}
+
+#navOverlay h1 {
+    text-align: center;
+}
+
+#navOverlay p {
+    padding: 30px;
+    font-size: 1.25em;
+}
+
+
+
 #closeButton {
     margin-top: 2%;
     margin-left: 90%;
@@ -106,7 +137,18 @@ nav li{
     border:0px ;
 }
 
-#closeButton:hover {
+#navCloseButton {
+    display: block;
+    margin-top: 2%;
+    margin-left: 90%;
+    /*color: #c25a5c;*/
+    color: #000000;
+    font-size: 2em;
+    background-color: transparent;
+    border:0px ;
+}
+
+#closeButton:hover, #navCloseButton:hover {
     /*color: #ffe07b ;*/
     color: darkgray;
 }

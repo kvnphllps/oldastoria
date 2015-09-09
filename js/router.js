@@ -66,7 +66,15 @@ function home (request, response) {
   else if (request.url === '/js/theAstoriaMap.js'){
       response.writeHead(200, jsHeader);
       renderer.javaScript("theAstoriaMap", response);
-  } else if (request.url === '/img/dot.png') {
+  }
+
+  else if (request.url === '/js/navOverlays.js'){
+      response.writeHead(200, jsHeader);
+      renderer.javaScript("navOverlays", response);
+  }
+
+
+  else if (request.url === '/img/dot.png') {
 
       response.writeHead(200, pngHeader);
       renderer.imgPNG("dot", response);

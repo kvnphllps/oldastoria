@@ -8,13 +8,14 @@ function initializeMap() {
 
     // Define default map centering
 
-    // Defaults: zoom = 14
+    // Defaults: if zoom = 14 then:
     //var defPos = new google.maps.LatLng(46.183, -123.82251);
 
-    // Defaults: zoom = 16
+    // Defaults: if zoom = 16 then:
     var defPos = new google.maps.LatLng(46.188285, -123.831776);
 
-    // use SVG as myDot
+    // define SVG dots
+        // Default dot style
     var mySmallDot = {
         path: google.maps.SymbolPath.CIRCLE,
         strokeWeight: 0,
@@ -25,7 +26,7 @@ function initializeMap() {
         scale: 9
 
     };
-
+        // Hover (mouseover) state dot style
     var myBigDot = {
         path: google.maps.SymbolPath.CIRCLE,
         strokeWeight: 4,
@@ -38,12 +39,12 @@ function initializeMap() {
     };
 
 
-    // Bounds on zoom
+    // Bounds on map zoom
     var mapMinZoom = 14;
     var mapMaxZoom = 17;
     var defaultZoom = 16;
 
-    // Set Map properties: terrain map with a default zoom of 14
+    // Set Map properties: terrain map with a defaultZoom
     var mapOptions = {
         center: defPos,
         zoom: defaultZoom,
@@ -62,26 +63,26 @@ function initializeMap() {
     var astoriaMap = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
 
-    // Hide points of interest & custom color water to match banner.
+    // Hide points of interest (poi) & custom color water to match banner.
     var noPoi = [
         {
             featureType: "poi",
             stylers: [
-                {visibility: "off"},
+                {visibility: "off"}
             ]
         },{
             featureType: "water",
             stylers: [
-                { color: "#b1d2fe" },
+                { color: "#b1d2fe" }
             ]
         }
     ];
     astoriaMap.setOptions({styles: noPoi});
 
-
+    // Initialize dots to be used on the map
     var markers = [];
 
-    // loop through dotdata and draw dots, info windows
+    // loop through dotData.js and draw dots, info windows
     for (var i = 0; i < dotData.length; i++) {
 
         var dotMarker = new google.maps.Marker(
@@ -89,6 +90,7 @@ function initializeMap() {
                 position : new google.maps.LatLng(dotData[i].position.lat, dotData[i].position.lng),
                 map : astoriaMap,
                 icon : mySmallDot,
+                // Swap in "loc" for prod.
                 //content : infoBoxHTML(dotData[i]['loc'], dotData[i].imgSrc),
                 // Swap in "id" for dev.
                 content : infoBoxHTML(dotData[i]['id'], dotData[i].imgSrc),
@@ -97,25 +99,25 @@ function initializeMap() {
             }
 
         );
-
+        // add current dot to our collection of dots
         markers.push(dotMarker);
 
 
-        // Mouse over listener for the dots: turn yellow on a mouseover.
+        // Mouse over listener for the dots: use opaque dot myBigDot.
         new google.maps.event.addListener(markers[i], 'mouseover', function () {
 
             this.setIcon(myBigDot);
 
         });
 
-        // Mouseout listener for the dots: make them red again.
+        // Mouseout listener for the dots: use less opaque dot mySmallDot.
         new google.maps.event.addListener(markers[i], 'mouseout', function () {
 
             this.setIcon(mySmallDot);
 
         });
 
-        // Overlay
+        // Define Overlay components to be bound to dot click events.
         var $overlay = $("<div id = 'overlay'></div>");
         var $gePrev = $("<ul id='og-grid' class='og-grid'></ul>");
         var $closeButton = $('<button id = "closeButton">&times</button>');
@@ -123,24 +125,24 @@ function initializeMap() {
 
         // Build Overlay
         $overlay.append($closeButton);
-        // Add cchs icon to our overlay
+            // Add cchs icon to our overlay
         $overlay.append($cchsIco);
-        // Add an overlay to the body
+            // Add an overlay to the body
         $("body").append($overlay);
 
         // Click listener for dots: show overlay on a click
         new google.maps.event.addListener(markers[i], 'click', function () {
 
-
-
             var $currImages = this.content; // this will need to be an li a img for each image source found
             // Get image information from the click
             $overlay.append($currImages);
             //console.log('id: ' + this.id + ' imgSrc: ' + this.imgSrc);
-            $overlay.show();
+            $overlay.fadeIn();
 
             $closeButton.on('click', function (e) {
-                $overlay.hide();
+                $overlay.fadeOut();
+
+
                 $(this).next().next().remove(); //ugly but works!
 
             });

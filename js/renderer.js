@@ -21,7 +21,7 @@ function style (templateName, response) {
     response.write(fileContents);
 }
 
-// css renderer
+// javaScript renderer
 function javaScript (templateName, response) {
     // read HTML from the views directory
     var fileContents = fs.readFileSync('js/' + templateName + '.js');

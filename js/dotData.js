@@ -23,7 +23,7 @@ var dotData = [
     //    id: 1, // Loc. ID, in order of creation in model.
     //    timeEra: 'bf',//before fire = bf, after fire = af
     //    loc: 'Marine Dr. & 11th St.', //Approximate address
-    //    imgSrc : 'image_id_001', //image file name
+    //    imgSrc : 'image_id_001', //image file name(s)
     //    position: {              // Lat & Lng of address
     //        lat: 46.18966929,
     //        lng: -123.83172154
