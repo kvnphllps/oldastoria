@@ -2,8 +2,6 @@
  * Created by kevinGphillips on 6/29/15.
  */
 
-var userPos;
-
 function initializeMap() {
 
     // Define default map centering
@@ -95,7 +93,6 @@ function initializeMap() {
                 // Swap in "id" for dev.
                 content : infoBoxHTML(dotData[i]['id'], dotData[i].imgSrc),
                 id: dotData[i]['id'],
-                imgSrc : dotData[i].imgSrc
             }
 
         );
@@ -142,8 +139,8 @@ function initializeMap() {
             $overlay.fadeIn();
 
             $closeButton.on('click', function (e) {
-                $overlay.fadeOut();
 
+                $overlay.fadeOut();
 
                 $(this).next().next().remove(); //ugly but works!
 

@@ -15,7 +15,7 @@ var aboutText = "Inspired by <a href = 'http://oldnyc.org' target='_blank'><stro
 
 var feedbackText = "Find an error? Please let us know! Please email us a description of the error you found including the location and image in question! Thank you.";
 
-var contributeText = "Want to help make this resource better for everyone? Send us your pictures! Help us scan new ones! Update our database and image collection! All inqueries welcome. Thank you.";
+var contributeText = "Want to help make this resource better for everyone? Send us your pictures! Help us scan new ones! Update our database and image collection! All inquiries welcome.";
 
 // Capture the click event on a link (anchor element) to an image. Get the href.
 $("#navBits a").click(function (event) {
