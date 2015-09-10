@@ -63,6 +63,12 @@ function home (request, response) {
       renderer.javaScript("dotData", response);
 
   }
+  // Wire up test data for geViewer
+  else if (request.url === '/js/dotDataDev.js'){
+      response.writeHead(200, jsHeader);
+      renderer.javaScript("dotDataDev", response);
+
+  }
   else if (request.url === '/js/theAstoriaMap.js'){
       response.writeHead(200, jsHeader);
       renderer.javaScript("theAstoriaMap", response);
@@ -73,28 +79,24 @@ function home (request, response) {
       renderer.javaScript("navOverlays", response);
   }
 
-
-  else if (request.url === '/img/dot.png') {
-
-      response.writeHead(200, pngHeader);
-      renderer.imgPNG("dot", response);
-
-  } else if (request.url === '/img/dot_yellow.png') {
-
-      response.writeHead(200, pngHeader);
-      renderer.imgPNG("dot_yellow", response);
-
-  } else if (request.url === '/img/cchs_icon.png') {
+  else if (request.url === '/img/cchs_icon.png') {
 
       response.writeHead(200, pngHeader);
       renderer.imgPNG("cchs_icon", response);
 
-  } else if (request.url === '/img/image_id_001.png') {
+  }
+
+  // This needs to generalized for any .png requested.
+  else if (request.url === '/img/image_id_001.png') {
 
       response.writeHead(200, pngHeader);
       renderer.imgPNG("image_id_001", response);
 
   }
+
+    ////////////////////////////
+    // Grid expanding viewer  //
+    ////////////////////////////
 
 
 

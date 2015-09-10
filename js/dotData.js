@@ -36,11 +36,12 @@ function infoBoxHTML(id, imgSrc){
                     +  'Have one you would like to contribute? Get in touch!</h2>';
 
     }
-    console.log(currImgHTML);
 
     return html+currImgHTML+endHTML;
 }
 
+
+// Third generation: use the grid expanding viewer
 
 
 var dotData = [
@@ -60,7 +61,7 @@ var dotData = [
         imageSource: 'CCHS',
         desc : ['image_id_001_desc'],
         loc: 'Marine Dr. & 11th St.',
-        imgSrc : [''],
+        imgSrc : [''], // wire up to test images
         position: {
             lat: 46.1897300,
             lng: -123.83172154
@@ -292,7 +293,7 @@ var dotData = [
         loc: 'Grand Ave. & 11th St.',
         imgSrc : ['image_id_001'],
         position: {
-            lat: 46.186228,
+            lat: 46.186248,
             lng: -123.831848
         }
     },
@@ -590,7 +591,7 @@ var dotData = [
         imgSrc : ['image_id_001'],
         position: {
             lat: 46.188030,
-            lng: -123.827059
+            lng: -123.827100
         }
     },
     {
@@ -611,7 +612,7 @@ var dotData = [
         loc: 'Grand Ave. & 15th St.',
         imgSrc : ['image_id_001'],
         position: {
-            lat: 46.186050,
+            lat: 46.186080,
             lng: -123.826888
         }
     },
@@ -622,7 +623,7 @@ var dotData = [
         loc: 'Irving Ave. & 15th St.',
         imgSrc : ['image_id_001'],
         position: {
-            lat: 46.185058,
+            lat: 46.185098,
             lng: -123.826770
         }
     }
