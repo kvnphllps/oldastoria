@@ -13,8 +13,8 @@ var app = express();
 app.use('/static', express.static(__dirname + '/public'));
 
 // Rendering configuration
-//app.set('view engine', 'jade');
-//app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/views');
 
 // Routing
 app.get('/', function (req,res) {

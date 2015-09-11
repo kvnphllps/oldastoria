@@ -5,7 +5,7 @@
 
 // Requirements
 var http = require('http'),
-  //router = require('./public/js/router.js');
+  router = require('./public/js/router.js');
 
 // Create a webserver
 http.createServer(function (request, response) {

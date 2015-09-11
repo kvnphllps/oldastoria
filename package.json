@@ -28,6 +28,7 @@
   "devDependencies": {
     "express": "^4.13.3",
     "gulp": "^3.9.0",
+    "jade": "^1.11.0",
     "jquery": "^2.1.4",
     "mocha": "^2.2.5"
   }
