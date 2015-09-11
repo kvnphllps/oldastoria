@@ -21,19 +21,18 @@ function initializeMap() {
         fillOpacity: 0.5,
         strokeColor:"#c1595a",
         strokeOpacity: 0.5,
-        scale: 9
+        scale: 6
 
     };
         // Hover (mouseover) state dot style
     var myBigDot = {
         path: google.maps.SymbolPath.CIRCLE,
-        strokeWeight: 4,
+        strokeWeight: 3,
         fillColor:  "#c1595a",// "#ffe07b",
         fillOpacity: 1.0,
         strokeOpacity: 1.0,
         strokeColor: "#c1595a",//"#ffe07b",
-        scale: 7,
-        offset: '0%'
+        scale: 7
     };
 
 
@@ -118,7 +117,7 @@ function initializeMap() {
         var $overlay = $("<div id = 'overlay'></div>");
         var $gePrev = $("<ul id='og-grid' class='og-grid'></ul>");
         var $closeButton = $('<button id = "closeButton">&times</button>');
-        var $cchsIco = $('<img id = "cchsIcon" src = "img/cchs_icon.png">');
+        var $cchsIco = $('<img id = "cchsIcon" src = "/static/img/cchs_icon.png">');
 
         // Build Overlay
         $overlay.append($closeButton);

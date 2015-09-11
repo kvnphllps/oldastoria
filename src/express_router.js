@@ -23,10 +23,6 @@ app.get('/', function (req,res) {
     var path = req.path;
     res.render('index',{path:path});
 
-    // or this
-    // res.locals.path = path;
-    // res.render('index');
-
 });
 
 // Listen on port off localhost

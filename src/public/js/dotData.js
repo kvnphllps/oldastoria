@@ -29,7 +29,7 @@ function infoBoxHTML(id, imgSrc){
 
     if (imgSrc[0].length>0){
         for (var currImg in imgSrc){
-            currImgHTML += '<img style = "float: left; display: inline-block" src = img/' + imgSrc[currImg] + '.png>';
+            currImgHTML += '<img style = "float: left; display: inline-block" src = static/img/' + imgSrc[currImg] + '.png>';
         }
     } else {
         currImgHTML += '<h2>There is no image currently available for this location. <br>'

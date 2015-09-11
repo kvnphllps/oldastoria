@@ -1,5 +1,4 @@
-# Google maps dev API key
-/src/views/partials/maps_api_key.html
+# Google maps dev API ke
 /src/views/partials/maps_api_key.jade
 /node_modules
 /src/public/js/thumbGEPrev
