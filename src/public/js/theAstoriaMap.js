@@ -91,7 +91,7 @@ function initializeMap() {
                 // Swap in "loc" for prod.
                 //content : infoBoxHTML(dotData[i]['loc'], dotData[i].imgSrc),
                 // Swap in "id" for dev.
-                content : infoBoxHTML(dotData[i]['id'], dotData[i].imgSrc), // uses grid expanding viewer!
+                content : infoBoxHTML(dotData[i]['id'], dotData[i].imgSrc, dotData[i].desc  ), // uses grid expanding viewer!
                 id: dotData[i]['id'],
             }
 

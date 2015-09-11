@@ -39,6 +39,14 @@ function imgPNG (templateName, response) {
     response.write(fileContents);
 }
 
+// jpg renderer
+function imgJPG (templateName, response) {
+    // read HTML from the views directory
+    var fileContents = fs.readFileSync('img/' + templateName + '.png');
+
+    // write out the contents to the response
+    response.write(fileContents);
+}
 
 
 module.exports.view = view;

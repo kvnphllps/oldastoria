@@ -19,7 +19,8 @@ var jsHeader = {'Content-Type':'application/javascript'};
 // PNG header
 var pngHeader = {'Content-Type':'img/png'};
 
-
+// JPG header
+var jpgHeader = {'Content-Type':'img/jpg'};
 
 ////////////////
 // Home route //
@@ -32,13 +33,14 @@ function home (request, response) {
       // home view html //
       ////////////////////
       response.writeHead(200, htmlHeader);
+        // loop here
       renderer.view("header", {}, response);
       renderer.view("maps_api_key", {}, response);
       renderer.view("map", {}, response);
       renderer.view("footer", {}, response);
     } else {
-      response.writeHead({'Content-Type':'text/plaintext'});
-      response.write('Not found');
+      response.writeHead(404,{'Content-Type':'text/html'});
+      response.end('Not found');
       }
       ////////////////////
       // home view css  //
@@ -94,24 +96,41 @@ function home (request, response) {
 
   }
 
-    ////////////////////////////
-    // Grid expanding viewer  //
-    ////////////////////////////
-
-
-
+    //////////////////////////////////////////////////////////
+    // Grid expanding viewer: serve up those static files!  //
+    //////////////////////////////////////////////////////////
+    // route css
+   else if (request.url === '/js/thumbGEPrev/css/default.css') {
+      response.writeHead(200, cssHeader);
+      renderer.style("default", response);
+  }
+  else if (request.url === '/js/thumbGEPrev/css/component.css') {
+      response.writeHead(200, cssHeader);
+      renderer.style("component", response);
+  }
+  // route js
+  else if (request.url === '/js/thumbGEPrev/js/grid.js') {
+      response.writeHead(200, jsHeader);
+      renderer.javaScript("grid", response);
+  }
+  else if (request.url === '/js/thumbGEPrev/css/modernizer.custom.js') {
+      response.writeHead(200, jsHeader);
+      renderer.javaScript("modernizer.custom", response);
+  }
+  // route jpeg images
+  else if (request.url === '/js/thumbGEPrev/images/thumbs/1.jpg') {
+      response.writeHead(200, jpgHeader);
+      renderer.style("default", response);
+  }
+  else if (request.url === '/js/thumbGEPrev/css/component.css') {
+      response.writeHead(200, cssHeader);
+      renderer.style("component", response);
+  }
 
     response.end();
 
 }
 
-/////////////////
-// About route //
-/////////////////
-
-////////////////////
-// Feedback route //
-////////////////////
 
 
 module.exports.home = home;
