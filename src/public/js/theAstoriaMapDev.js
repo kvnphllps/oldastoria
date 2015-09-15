@@ -114,15 +114,14 @@ function initializeMap() {
         new google.maps.event.addListener(markers[i], 'click', function () {
 
             // Get current dot information
-            var $currDot = this.id;
+            var dotID = this.id;
 
-            //$overlay.append($currImages);
-            //console.log('id: ' + this.id + ' imgSrc: ' + this.imgSrc);
+            console.log('id: ' + dotID);
 
             // Our dotOverlay function should return the overlay here. Then we'll show it, hide it, detach it
             // as needed.
 
-            var $overlay = dotOverlayGenerator($currDot);
+            var $overlay = dotOverlayGenerator(dotID);
 
             $("body").append($overlay);
 
