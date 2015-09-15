@@ -5,8 +5,7 @@ html
    head
 
       //link(rel='stylesheet', href='static/css/normalize.css')
-      link(rel='stylesheet', href='static/js/gePreview/component.css')
-      link(rel='stylesheet', href='static/js/gePreview/default.css')
+      link(rel='stylesheet', href='static/js/expandable-image-grid-master/grid.css')
 
       link(rel='stylesheet', href='static/css/main.css')
 
@@ -33,7 +32,14 @@ html
                li
                   a(href='/') Contribute!
 
+
+
+      .main(style='display: none')
+
+      #og-details-template(style='display:none')
+         h3.title TESTING
       #map-canvas
+
 
       include ./partials/maps_api_key
 
@@ -46,6 +52,8 @@ html
       script(src='static/js/dotOverlay.js', type='text/javascript')
       script(src='static/js/navOverlays.js', type='text/javascript')
       script(src='static/js/theAstoriaMapDev.js', type='text/javascript')
-      script(src='static/js/gePreview/grid.js', type='text/javascript')
-      script(src='static/js/gePreview/initGrid.js', type='text/javascript')
+
+      script(src='static/js/expandable-image-grid-master/modernizr.custom.js', type='text/javascript')
+      script(src='static/js/expandable-image-grid-master/grid.js', type='text/javascript')
+
 

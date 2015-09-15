@@ -2,6 +2,29 @@
  * Created by kevinGphillips on 6/29/15.
  */
 
+// Modularize our storage of images: can be local or production
+
+function thumbUrl(id) {
+    // eventually use a webservice to host our image assets
+    //return 'https://s3.amazonaws.com/oldastoria/thumb/' + id + '.jpg';
+    return '/static/img/thumbs/' + id + '.jpg';
+}
+
+function imageUrl(id) {
+    // eventually use a webservice to host our image assets
+    //return 'https://s3.amazonaws.com/oldastoria/500px/' + id + '.jpg';
+    return '/static/img/500px/' + id + '.jpg';
+}
+
+// update image sources
+var infos = $.map(dotData, function (info, id) {
+    return $.extend({
+        largesrc: imageUrl(id),
+        src: thumbUrl(id)
+    }, info);
+});
+
+
 function initializeMap() {
 
     // Define default map centering
@@ -89,7 +112,6 @@ function initializeMap() {
                 icon : mySmallDot,
                 id: dotData[i].id
             }
-
         );
 
         // add current dot to our collection of dots
@@ -115,25 +137,50 @@ function initializeMap() {
 
             // Get current dot information
             var dotID = this.id;
-
             console.log('id: ' + dotID);
 
             // Our dotOverlay function should return the overlay here. Then we'll show it, hide it, detach it
             // as needed.
+            //var $overlay = dotOverlayGenerator(dotID);
+            //$("body").append($overlay);
+            //$overlay.fadeIn();
 
-            var $overlay = dotOverlayGenerator(dotID);
+            var recs = dotData[this.id].records;
 
-            $("body").append($overlay);
-
-            $overlay.fadeIn();
-
-            $($overlay).first().on('click', function (e) {
-
-                $overlay.fadeOut();
-
-                $(this).next().next().remove(); //ugly but works!
-
+            var infos = $.map(recs, function(info, id) {
+                return $.extend({
+                    id: id,
+                    largesrc: imageUrl(id),
+                    src: thumbUrl(id)
+                }, info);
             });
+            console.log(infos);
+                $('.main')
+                    .show()
+                    .expandableGrid({
+                        rowHeight: 200
+                    }, infos);
+
+                $('.main').on('og-fill', 'li', function(e, div) {
+                    $(div).empty().append(
+                        $('#og-details-template').clone().removeAttr('id').show());
+                    $(div).find('.title').text(dotData[this.id].loc);
+                });
+
+
+                //console.log(infos[dotID]);
+
+
+
+
+
+            //$($overlay).first().on('click', function (e) {
+            //
+            //    $overlay.fadeOut();
+            //
+            //    $(this).next().next().remove(); //ugly but works!
+            //
+            //});
 
          });
 
