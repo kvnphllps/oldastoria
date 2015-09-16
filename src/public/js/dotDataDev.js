@@ -26,7 +26,7 @@ var dotData = {
             "image-b": {
                 "height": 500,
                 "width": 500,
-                "date": "1939",
+                "date": "1926",
                 "dscrptn": "This is another picture of olde stuff.",
                 "loc": "Marine Dr. & 11th St.",
                 "imageSrc": "Joe Bob"
@@ -34,7 +34,7 @@ var dotData = {
             "image-c": {
                 "height": 500,
                 "width": 500,
-                "date": "1939",
+                "date": "1941",
                 "dscrptn": "This is the last picture of olde stuff.",
                 "loc": "Marine Dr. & 11th St.",
                 "imageSrc": "Sara's olde photogs"
@@ -54,23 +54,23 @@ var dotData = {
                 "width": 500,
                 "date": "1939",
                 "dscrptn": "This is a picture of stuff. Old stuff.",
-                "loc": "Marine Dr. & 11th St.",
+                "loc": "Marine Dr. & 10th St.",
                 "imageSrc": "Cumtux ID Number etc."
             },
             "image-b": {
                 "height": 500,
                 "width": 500,
-                "date": "1939",
+                "date": "1909",
                 "dscrptn": "This is another picture of olde stuff.",
-                "loc": "Marine Dr. & 11th St.",
+                "loc": "Marine Dr. & 10th St.",
                 "imageSrc": "Joe Bob"
             },
             "image-c": {
                 "height": 500,
                 "width": 500,
-                "date": "1939",
+                "date": "1879",
                 "dscrptn": "This is the last picture of olde stuff.",
-                "loc": "Marine Dr. & 11th St.",
+                "loc": "Marine Dr. & 10th St.",
                 "imageSrc": "Sara's olde photogs"
             }
         }

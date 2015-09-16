@@ -137,7 +137,6 @@ function initializeMap() {
 
             // Get current dot information
             var dotID = this.id;
-            console.log('id: ' + dotID);
 
             // Our dotOverlay function should return the overlay here. Then we'll show it, hide it, detach it
             // as needed.
@@ -145,7 +144,7 @@ function initializeMap() {
             //$("body").append($overlay);
             //$overlay.fadeIn();
 
-            var recs = dotData[this.id].records;
+            var recs = dotData[dotID].records;
             var infos = $.map(recs, function(info, id) {
                 return $.extend({
                     id: id,
@@ -153,19 +152,19 @@ function initializeMap() {
                     src: thumbUrl(id)
                 }, info);
             });
-            console.log(recs[this.id]);
+
                 $('.main')
                     .show()
                     .expandableGrid({
                         rowHeight: 200
                     }, infos);
 
-
-
                 $('.main').on('og-fill', 'li', function(e, div) {
+                    var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
                     $(div).empty().append(
                         $('#og-details-template').clone().removeAttr('id').show());
-                    $(div).find('.title').text('recs[id].title');
+                    $(div).find('.title').text(recs[id].loc+' ('+recs[id].date+')');
+                    $(div).find('.dscrptn').text(recs[id].dscrptn);
                 });
 
 
