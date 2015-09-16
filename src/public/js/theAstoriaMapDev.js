@@ -146,7 +146,6 @@ function initializeMap() {
             //$overlay.fadeIn();
 
             var recs = dotData[this.id].records;
-
             var infos = $.map(recs, function(info, id) {
                 return $.extend({
                     id: id,
@@ -154,17 +153,19 @@ function initializeMap() {
                     src: thumbUrl(id)
                 }, info);
             });
-            console.log(infos);
+            console.log(recs[this.id]);
                 $('.main')
                     .show()
                     .expandableGrid({
                         rowHeight: 200
                     }, infos);
 
+
+
                 $('.main').on('og-fill', 'li', function(e, div) {
                     $(div).empty().append(
                         $('#og-details-template').clone().removeAttr('id').show());
-                    $(div).find('.title').text(dotData[this.id].loc);
+                    $(div).find('.title').text('recs[id].title');
                 });
 
 
