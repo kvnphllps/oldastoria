@@ -169,27 +169,21 @@ function initializeMap() {
 
                 $('.main').on('og-fill', 'li', function(e, div) {
                     var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
-
+                    //var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
                     $(div).empty().append(
                         $('#og-details-template').clone().removeAttr('id').show());
                     $(div).find('.title').text(recs[id].date);
                     $(div).find('.dscrptn').text(recs[id].dscrptn);
+                    $(div).find('.picSource').text(recs[id].imageSrc);
+                    $(div).find('.fb-comments').attr({
+                        'data-href' :'http://developers.facebook.com/docs/plugins/comments/',
+                        'data-width':'328',
+                        'data-numposts' :'5'
+                    });
+
+
                 });
 
-
-                //console.log(infos[dotID]);
-
-
-
-
-
-            //$($overlay).first().on('click', function (e) {
-            //
-            //    $overlay.fadeOut();
-            //
-            //    $(this).next().next().remove(); //ugly but works!
-            //
-            //});
 
          });
 

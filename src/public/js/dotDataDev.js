@@ -14,15 +14,15 @@ var dotData = {
             "lat": 46.1897300,
             "lng": -123.83172154
         },
-        "loc" : "Marine Dr. & 11th St.",
+        //"loc" : "Marine Dr. & 11th St.",
         "records": {
             "image-a": {
                 "height": 500,
                 "width": 500,
                 "date": "1939",
-                "dscrptn": "This is a picture of stuff. Old stuff.",
+                "dscrptn": "Mumblecore yr wayfarers, vinyl hashtag cray biodiesel Neutra raw denim Helvetica selvage single-origin coffee. Vice PBR irony, vinyl trust fund literally gentrify. Taxidermy cornhole Carles flannel, cold-pressed lumbersexual 90's you probably haven't heard of them High Life kale chips. Hella typewriter +1, readymade organic distillery flannel. Portland butcher pork belly, church-key mustache beard mlkshk. Distillery occupy mixtape, flexitarian listicle leggings slow-carb Marfa mlkshk Thundercats church-key gentrify DIY. Chillwave fashion axe Odd Future Bushwick next level mumblecore, irony cray Truffaut authentic stumptown.",
                 "loc": "Marine Dr. & 11th St.",
-                "imageSrc": "Cumtux ID Number etc."
+                "imageSrc": " Cumtux ID Number etc."
             },
             "image-b": {
                 "height": 500,
@@ -30,7 +30,7 @@ var dotData = {
                 "date": "1926",
                 "dscrptn": "This is another picture of olde stuff.",
                 "loc": "Marine Dr. & 11th St.",
-                "imageSrc": "Joe Bob"
+                "imageSrc": " Joe Bob"
             },
             "image-c": {
                 "height": 500,
@@ -38,7 +38,7 @@ var dotData = {
                 "date": "1941",
                 "dscrptn": "This is the last picture of olde stuff.",
                 "loc": "Marine Dr. & 11th St.",
-                "imageSrc": "Sara's olde photogs"
+                "imageSrc": " Sara's olde photogs"
             }
         }
 
@@ -56,7 +56,7 @@ var dotData = {
                 "date": "1939",
                 "dscrptn": "This is a picture of stuff. Old stuff.",
                 "loc": "Marine Dr. & 10th St.",
-                "imageSrc": "Cumtux ID Number etc."
+                "imageSrc": " Cumtux ID Number etc."
             },
             "image-b": {
                 "height": 500,
@@ -64,7 +64,7 @@ var dotData = {
                 "date": "1909",
                 "dscrptn": "This is another picture of olde stuff.",
                 "loc": "Marine Dr. & 10th St.",
-                "imageSrc": "Joe Bob"
+                "imageSrc": " Joe Bob"
             },
             "image-c": {
                 "height": 500,
@@ -72,7 +72,7 @@ var dotData = {
                 "date": "1879",
                 "dscrptn": "This is the last picture of olde stuff.",
                 "loc": "Marine Dr. & 10th St.",
-                "imageSrc": "Sara's olde photogs"
+                "imageSrc": " Sara's olde photogs"
             }
         }
 

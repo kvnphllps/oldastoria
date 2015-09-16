@@ -13,6 +13,17 @@ html
       link(href='https://fonts.googleapis.com/css?family=Lora', rel='stylesheet', type='text/css')
       title Old Astoria
    body
+      #fb-root
+      script.
+         (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+            fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+
       header
          a(href='/')
             h1 Old Astoria
@@ -47,8 +58,15 @@ html
 
       // This is the div the houses the larger views of our images.
       #og-details-template(style='display:none')
-         h3.title TESTING
+         h1
+            b.title TESTING
          p.dscrptn STUFF AND THINGS
+         br
+         p Source:
+            em.picSource THE WHO
+         .fb-comments
+
+
 
       // This div contains the google map.
       #map-canvas
