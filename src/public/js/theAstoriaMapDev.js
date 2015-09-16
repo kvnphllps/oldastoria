@@ -159,11 +159,20 @@ function initializeMap() {
                         rowHeight: 200
                     }, infos);
 
+                $('.main').find('.location').text(infos[dotID].loc);
+
+                $('#mainCloseButton').on('click', function() {
+                    $('.main').hide();
+                    $('.main').find('.og-grid').remove(); // clean the slate!
+                });
+
+
                 $('.main').on('og-fill', 'li', function(e, div) {
                     var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
+
                     $(div).empty().append(
                         $('#og-details-template').clone().removeAttr('id').show());
-                    $(div).find('.title').text(recs[id].loc+' ('+recs[id].date+')');
+                    $(div).find('.title').text(recs[id].date);
                     $(div).find('.dscrptn').text(recs[id].dscrptn);
                 });
 

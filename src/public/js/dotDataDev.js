@@ -14,6 +14,7 @@ var dotData = {
             "lat": 46.1897300,
             "lng": -123.83172154
         },
+        "loc" : "Marine Dr. & 11th St.",
         "records": {
             "image-a": {
                 "height": 500,

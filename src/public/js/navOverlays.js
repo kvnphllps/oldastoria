@@ -6,7 +6,7 @@
 
 // Define Overlay components to be bound to dot click events.
 var $overlay = $("<div id = 'navOverlay'></div>");
-var $closeButton = $('<button id = "navCloseButton">&times</button>');
+var $closeButton = $('<button class = "navCloseButton">&times</button>');
 
 // Todo: Template these out using Jade ... will require express routing and rendering (i think)
 var aboutText = "Inspired by <a href = 'http://oldnyc.org' target='_blank'><strong>oldnyc.org</strong></a> and" +

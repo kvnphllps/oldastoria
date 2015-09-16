@@ -44,7 +44,7 @@ header{
 
 header h1{
     margin: 15px 0;
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: normal;
     line-height: 0.5em;
     padding-left: 70px;
@@ -134,7 +134,7 @@ nav li{
     border:0px ;
 }
 
-#navCloseButton {
+.navCloseButton {
     display: block;
     margin-top: 2%;
     margin-left: 90%;
@@ -145,7 +145,7 @@ nav li{
     border:0px ;
 }
 
-#closeButton:hover, #navCloseButton:hover {
+#closeButton:hover, .navCloseButton:hover {
     /*color: #ffe07b ;*/
     color: darkgray;
 }
