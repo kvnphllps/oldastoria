@@ -175,17 +175,12 @@ function initializeMap() {
                     $(div).find('.title').text(recs[id].date);
                     $(div).find('.dscrptn').text(recs[id].dscrptn);
                     $(div).find('.picSource').text(recs[id].imageSrc);
-                    $(div).find('.fb-comments').attr({
-                        'data-href' :'http://developers.facebook.com/docs/plugins/comments/',
-                        'data-width':'328',
-                        'data-numposts' :'5'
-                    });
-
-
+                    // This is the janky-ist $hit! jeez, fb!
+                    $(div).find('.fb-comments span').css({"width":"100%"});
+                    $(div).find('.fb-comments span iframe').css({"width":"100%"});
                 });
 
-
-         });
+        });
 
     }
 
