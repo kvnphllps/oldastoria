@@ -31,9 +31,12 @@ function initializeMap() {
 
     // Defaults: if zoom = 14 then:
     //var defPos = new google.maps.LatLng(46.183, -123.82251);
+    var defPos = new google.maps.LatLng(46.186, -123.81251);
+
+    //var defPos = new google.maps.LatLng(46.183, -123.82251);
 
     // Defaults: if zoom = 16 then:
-    var defPos = new google.maps.LatLng(46.188285, -123.831776);
+    //var defPos = new google.maps.LatLng(46.188285, -123.831776);
 
     // define SVG dots
         // Default dot style
@@ -44,7 +47,7 @@ function initializeMap() {
         fillOpacity: 0.5,
         strokeColor:"#c1595a",
         strokeOpacity: 0.5,
-        scale: 6
+        scale: 5
 
     };
         // Hover (mouseover) state dot style
@@ -62,7 +65,7 @@ function initializeMap() {
     // Bounds on map zoom
     var mapMinZoom = 14;
     var mapMaxZoom = 17;
-    var defaultZoom = 16;
+    var defaultZoom = 14;
 
     // Set Map properties: terrain map with a defaultZoom
     var mapOptions = {
@@ -74,7 +77,8 @@ function initializeMap() {
         disableDefaultUI: true,
         zoomControl: true,
         zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.MEDIUM
+            style: google.maps.ZoomControlStyle.LARGE,
+            position: google.maps.ControlPosition.LEFT_BOTTOM
         },
         panControl: true
     };

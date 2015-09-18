@@ -21,10 +21,24 @@ html
             | a mapping of historical photos from the
             br
             a(href='http://www.cumtux.org/', target='_blank') Clatsop County Historical Society
+
+         .twitterButton
+                 a.twitter-share-button(href='https://twitter.com/share', data-hashtags='oldastoria') Tweet
+                 script.
+                     !function (d, s, id) {
+                         var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                         if (!d.getElementById(id)) {
+                             js = d.createElement(s);
+                             js.id = id;
+                             js.src = p + '://platform.twitter.com/widgets.js';
+                             fjs.parentNode.insertBefore(js, fjs);
+                         }
+                     }(document, 'script', 'twitter-wjs');
+
+         .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-width='100', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true')
+
          nav
             ul#navBits
-               // <li><a href="#">Before the fire of 1922</a></li>
-               // <li><a href="#">After 1922</a></li>
                li
                   a(href='/') About
                li
@@ -63,7 +77,24 @@ html
          hr(style='width:50%;')
          br
          .fb-comments-container
-            .fb-comments(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='100%', data-order-by = 'time', data-numposts = '1')
+            .social
+              ul
+                li(style="margin-top:5.5px")
+                    a.twitter-share-button(href='https://twitter.com/share', data-count='none', data-hashtags='oldastoria') Tweet
+                       script.
+                        !function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                            if (!d.getElementById(id)) {
+                                js = d.createElement(s);
+                                js.id = id;
+                                js.src = p + '://platform.twitter.com/widgets.js';
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }
+                        }(document, 'script', 'twitter-wjs');
+
+                li
+                  .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-width='100', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true')
+              .fb-comments(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='100%', data-order-by = 'time', data-numposts = '1')
 
       // This div contains the google map.
       #map-canvas

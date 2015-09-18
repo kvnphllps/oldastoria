@@ -4,6 +4,7 @@
 
 html, body, #map-canvas {
     height: 97.5%;
+    /*height: 100%;*/
     width: 100%;
     margin: 0px;
     padding-top: 0%;
@@ -38,8 +39,12 @@ a:hover{
 header{
     float:left;
     width: 100%;
-    height: 7%;
+    height: 7.5%;
+    /*background: transparent;*/
+    /*position: absolute;*/
     background-color: #b1d2fe;
+    /*background-color: transparent;*/
+    /*z-index: 1000;*/
 }
 
 header h1{
@@ -54,26 +59,46 @@ header h1{
 #littlebits {
     font-size: small;
     display: inline-block;
+    height: 7%;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     /*color: #ffe07b;*/
     color: white;
 }
 
 /***************************************/
+/*SOCIAL MEDIA ICONS*/
+/***************************************/
+
+.twitterButton {
+
+    display:inline-block;
+    padding-left:40px;
+    width: 100px;
+}
+
+.fb-like {
+    display: inline-block;
+    width: 100px;
+    bottom: 4px;
+}
+
+
+/***************************************/
 /*NAVIGATION*/
 /***************************************/
 
 nav{
-    color: gold;
+    display: inline-block;
     float: right;
     font-size: 1.25em;
-    margin-right: 5%;
+    margin-right: 2%;
     text-align: right;
     opacity: 70;
 }
 nav ul{
     list-style: none;
     margin: 10px 0;
+    padding-top: 8px;
 }
 
 nav li{
