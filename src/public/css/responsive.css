@@ -1,103 +1,98 @@
 
-/* Larger than average smart phone screen */
-@media screen and (min-width: 40px){
 
-  h1{
-  font-size:  1.5em;
-  }
-  
-  h3{
-   font-size: 0.825em;
-    margin-bottom:  20px;
-  }
-  
-}
-  
-@media screen and (min-width: 480px){
+@media screen and (max-width: 1170px){
 
-  /**************************************
-  TWO COLUMN LAYOUT
-  **************************************/
-  #primary{
-    width: 50%;
-    float: left;
-  }
-  
-  #secondary{
-    width: 40%;
-    float: right;
-  }
- 
-  /**************************************
-  PAGE: Portfolio
-  **************************************/
-  
-  #gallery li{
-    width: 28.3333%;
-  }
-  
-  #gallery li:nth-child(4n) {
-    clear: left;
-  }
-  
-  
-   /**************************************
-  PAGE: About
-  **************************************/
-  
-  .profile-photo{
-   float: left;
-   margin: 0 5% 80px 0;
-  }
-
-
-  /**************************************
-  HEADER: best to have this in main.css - as i put it in both media queries...
-  **************************************/
-  
-h1{
-  font-size:  1.5em;
-  }
-  
-  h3{
-   font-size: 0.825em;
-    margin-bottom:  20px;
-  }
-  
+header {
+    height: 6.5%;
 }
 
-/* Larger than average ... screen*/
-@media screen and (min-width: 660px){
-  
-  
-  /**************************************
-  HEADER
-  **************************************/
-  
-  nav {
-    background: none;
-    float: right;
-    font-size: 1.125em;
-    margin-right: 5%;
-    text-align: right;
-    width: 45%;
+    header h1{
+        margin: 15px 0;
+        font-size: 1.75em;
+        font-weight: normal;
+        line-height: 0.5em;
+        padding-left: 10px;
+        padding-right: 5px;
+    }
+
+    nav{
+        display: inline-block;
+        float: right;
+        height: 34px;
+        font-size: 1.25em;
+        margin-right: 2%;
+        text-align: right;
+        opacity: 70;
+    }
+
+    nav ul {
+        margin-top: 4px;
+    }
+
   }
-  
-  #logo {
-   float: left;
-    margin-left: 5%;
-    text-align: left;
-    width: 45%;
-  }
-  
-  h1{
-  font-size:  1.5em;
-  }
-  
-  h3{
-   font-size: 0.825em;
-    margin-bottom:  20px;
-  }
-  
-  
+
+
+@media screen and (max-width: 1050px) {
+
+    #littlebits {
+    display: none;
+    }
+
+}
+
+
+@media screen and (max-width: 800px) {
+
+   nav {
+       /*float: left;*/
+       /*font-size: 1em;*/
+       margin-right: 1%;
+   }
+
+
+    .twitterButton {
+        display:inline-block;
+        padding-left:5px;
+        width: 100px;
+    }
+
+}
+
+
+@media screen and (max-width: 756px) {
+
+    nav {
+        font-size: 1.0em;
+
+        text-align: center;
+
+    }
+
+}
+
+
+/*715-674*/
+
+@media screen and (max-width: 715px) {
+
+    header {
+        height: 12%;
+    }
+
+    #map-canvas {
+        height: 88%;
+    }
+
+    nav {
+        display: block;
+        float: left;
+        height: 24px;
+
+    }
+
+    nav ul {
+        padding: 0%;
+        padding-left: 10px;
+    }
+
 }
