@@ -1,9 +1,9 @@
 @media screen and (max-width: 1135PX) {
-    #littlebits {
-        font-size: small;
-        padding-left:0px;
-        margin-left: 0px;
-    }
+    /*#littlebits {*/
+        /*font-size: small;*/
+        /*padding-left:0px;*/
+        /*margin-left: 0px;*/
+    /*}*/
 
     .twitterButton {
         padding-top: 15px;
@@ -27,7 +27,7 @@
 }
 
 
-@media screen and (max-width: 497PX) {
+@media screen and (max-width: 590PX) {
     #littlebits {
         display: none;
     }
