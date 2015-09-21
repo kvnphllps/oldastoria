@@ -21,7 +21,8 @@ app.get('/', function (req,res) {
 
     // return our rendered jade file
     var path = req.path;
-    res.render('index',{path:path});
+    //res.render('index',{path:path});
+    res.render('test',{path:path});
 
 });
 

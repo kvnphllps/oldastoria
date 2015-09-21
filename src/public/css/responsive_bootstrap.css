@@ -1,0 +1,34 @@
+@media screen and (max-width: 1135PX) {
+    #littlebits {
+        font-size: small;
+        padding-left:0px;
+        margin-left: 0px;
+    }
+
+    .twitterButton {
+        padding-top: 15px;
+        padding-left: 10px;
+    }
+
+    .fb-like {
+        padding-top: 10px;
+        left: 0px;
+    }
+
+    #brand {
+        font-size: 1.5em;
+    }
+
+
+    #navUL {
+        font-size: 1.25em;
+    }
+
+}
+
+
+@media screen and (max-width: 497PX) {
+    #littlebits {
+        display: none;
+    }
+}

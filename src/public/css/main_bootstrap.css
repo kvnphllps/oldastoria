@@ -1,0 +1,57 @@
+body {
+    font-family: 'Lora', serif;
+}
+
+.navbar {
+    background-color: #b1d2fe;
+}
+
+#brand {
+    font-size:2.5em;
+    color:white;
+}
+
+#littlebits {
+    padding-top:2.25px;
+    display: inline-block;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: white;
+    font-size: medium;
+}
+
+#littlebits a {
+    text-decoration: none;
+    color: white;
+}
+
+#littlebits a:hover {
+    color: gold;
+}
+
+/*.twitterButton {*/
+    /*display:inline-block;*/
+    /*padding-left:40px;*/
+    /*padding-right:20px;*/
+    /*width: 100px;*/
+/*}*/
+
+
+.twitterButton {
+    display:inline-block;
+    padding-left:5px;
+    padding-top:12px;
+    width: 100px;
+}
+
+.fb-like {
+    left:10px;
+    display: inline-block;
+    width: 150px;
+    padding-top:4px;
+    padding-right:20px;
+    /*bottom: 6px;*/
+}
+
+#navUL {
+    font-size: 1.5em;
+}
