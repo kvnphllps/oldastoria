@@ -1,15 +1,32 @@
-body {
+html, body {
     font-family: 'Lora', serif;
     background: transparent;
+    height: 100%;
 }
 
+header{
+    float:left;
+    width: 100%;
+    height: 7.5%;
+    /*background: transparent;*/
+    /*position: absolute;*/
+    background-color: #b1d2fe;
+    /*background-color: transparent;*/
+    /*z-index: 1000;*/
+}
 
-html, body, #map-canvas {
+/*html, body, */
+
+#map-canvas {
     height: 97.5%;
     /*height: 100%;*/
-    width: 100%;
-    margin: 0px;
-    padding-top: 0%;
+    /*width: 100%;*/
+    /*margin: 0px;*/
+    /*padding-top: 0%;*/
+}
+
+.container-fluid {
+    position: relative;
 }
 
 .navbar {
@@ -66,4 +83,105 @@ html, body, #map-canvas {
 
 #navUL {
     font-size: 1.5em;
+    color: white;
+}
+
+#navUL li a{
+    color: white;
+}
+
+/***************************************/
+/*Overlay*/
+/***************************************/
+#overlay {
+    background:rgba(242,242,242,0.7);
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    display:none;
+    /*text-align:center;*/
+}
+
+#navOverlay {
+    background:rgba(242,242,242,1);
+    width:50%;
+    height:50%;
+    position:absolute;
+    top:10%;
+    left:25%;
+    display:none;
+    /*text-align:center;*/
+}
+
+#navOverlay a {
+    color: #c1595a;
+
+}
+
+#navOverlay a:hover {
+    font-style: oblique;
+}
+
+#navOverlay h1 {
+    text-align: center;
+}
+
+#navOverlay p {
+    padding: 30px;
+    font-size: 1.25em;
+}
+
+#closeButton {
+    margin-top: 2%;
+    margin-left: 90%;
+    /*color: #c25a5c;*/
+    color: #000000;
+    font-size: 4em;
+    background-color: transparent;
+    border:0px ;
+}
+
+.navCloseButton {
+    display: block;
+    margin-top: 2%;
+    margin-left: 90%;
+    /*color: #c25a5c;*/
+    color: #000000;
+    font-size: 2em;
+    background-color: transparent;
+    border:0px ;
+}
+
+#closeButton:hover, .navCloseButton:hover {
+    /*color: #ffe07b ;*/
+    color: darkgray;
+}
+
+#cchsIcon {
+    max-width: 27%;
+    max-height: 27%;
+    margin-top: 37.5%;
+    margin-right: 72.5%;
+}
+
+#picTitle {
+    margin-left: 30%;
+    margin-top: 50%;
+}
+
+#currPics {
+    display: block;
+    position: absolute;
+    margin-left: 30%;
+    margin-top: -50%;
+    height: 60%;
+    z-index: 1000;
+}
+
+#currPics img {
+    max-width: 50%;
+    max-height: 50%;
+    padding: 30px;
 }

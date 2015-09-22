@@ -4,7 +4,7 @@ doctype html
 html
    head
       //link(rel='stylesheet', href='static/css/normalize.css')
-      link(rel='stylesheet', href='static/js/expandable-image-grid-master/grid.css')
+      //link(rel='stylesheet', href='static/js/expandable-image-grid-master/grid.css')
       // Local bootstrap css
       link(rel='stylesheet', href = 'static/js/bootstrap_compiled/css/bootstrap.css')
       //link(rel='stylesheet', href='static/css/main.css')
@@ -15,61 +15,61 @@ html
       // Local bootstrap fonts and glyphcons
       link(rel='stylesheet', href = 'static/js/bootstrap_compiled/fonts/glyphicons-halflings-regular.svg')
       link(href='https://fonts.googleapis.com/css?family=Lora', rel='stylesheet', type='text/css')
+      link(rel='stylesheet', href='static/js/expandable-image-grid-master/grid.css')
       title Old Astoria
 
    body
 
-        nav.navbar.navbar-default
-           .container-fluid
-              // Brand and toggle get grouped for better mobile display
-              .navbar-header
-                 button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
-                    span.sr-only Toggle navigation
-                    span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
-                 .navbar-brand#brand(href='#') Old Astoria
-                 .navbar-brand#littlebits a mapping of historical photos from the
-                    br
-                    a(href='http://www.cumtux.org/', target='_blank') Clatsop County Historical Society
+   .main
+       .header
+           h1 Old Astoria
+                button#mainCloseButton &times
+       h2.location
+
+
+   nav.navbar.navbar-default
+       .container-fluid
+          // Brand and toggle get grouped for better mobile display
+          .navbar-header
+             button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+             .navbar-brand#brand(href='#') Old Astoria
+             .navbar-brand#littlebits a mapping of historical photos from the
+                br
+                a(href='http://www.cumtux.org/', target='_blank') Clatsop County Historical Society
 
 
 
-              // Collect the nav links, forms, and other content for toggling
-              #bs-example-navbar-collapse-1.collapse.navbar-collapse
-                 ul.nav.navbar-nav.navbar-right#navUL
-                    li
-                       .twitterButton
-                          a.twitter-share-button(href='https://twitter.com/share', data-hashtags='oldastoria') Tweet
-                          script.
-                              !function (d, s, id) {
-                                  var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                                  if (!d.getElementById(id)) {
-                                      js = d.createElement(s);
-                                      js.id = id;
-                                      js.src = p + '://platform.twitter.com/widgets.js';
-                                      fjs.parentNode.insertBefore(js, fjs);
-                                  }
-                              }(document, 'script', 'twitter-wjs');
-                    li
-                        .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-width='100', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true')
-                    li
-                       a(href='#', style = "color:white;") About
-                    li
-                       a(href='#', style = "color:white;") Feedback
-                    li
-                       a(href='#', style = "color:white;") Contribute!
+          // Collect the nav links, forms, and other content for toggling
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+             ul.nav.navbar-nav.navbar-right#navUL
+                li
+                   .twitterButton
+                      a.twitter-share-button(href='https://twitter.com/share', data-hashtags='oldastoria') Tweet
+                      script.
+                          !function (d, s, id) {
+                              var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                              if (!d.getElementById(id)) {
+                                  js = d.createElement(s);
+                                  js.id = id;
+                                  js.src = p + '://platform.twitter.com/widgets.js';
+                                  fjs.parentNode.insertBefore(js, fjs);
+                              }
+                          }(document, 'script', 'twitter-wjs');
+                li
+                    .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-width='100', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true')
+                li
+                   a(href='#' ) About
+                li
+                   a(href='#') Feedback
+                li(style = "border-bottom:thin; border-bottom-color:white;")
+                   a(href='#') Contribute!
 
-        .main
-           .header
-               a
-                   h1 Old Astoria
 
-               button#mainCloseButton &times
-
-               h2.location
-
-        #og-details-template(style='display:none')
+      #og-details-template(style='display:none')
                 h1
                     b.title TESTING
                 hr(style='width:50%;')
@@ -102,9 +102,9 @@ html
                             li
                             .fb-like(data-href='https://developers.facebook.com/docs/plugins/', data-width='100', data-layout='button_count', data-action='like', data-show-faces='false', data-share='true')
                         .fb-comments(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='100%', data-order-by = 'time', data-numposts = '1')
-        #map-canvas
+    #map-canvas
 
-        include ./partials/maps_api_key
+    include ./partials/maps_api_key
 
 
     script(src='http://code.jquery.com/jquery-1.11.0.min.js', type='text/javascript')

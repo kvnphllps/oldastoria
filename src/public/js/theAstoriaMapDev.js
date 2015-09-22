@@ -160,7 +160,7 @@ function initializeMap() {
                 $('.main')
                     .show()
                     .expandableGrid({
-                        rowHeight: 200
+                        rowHeight: 180
                     }, infos);
 
                 $('.main').find('.location').text(infos[dotID].loc);
