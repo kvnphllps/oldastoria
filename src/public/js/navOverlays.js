@@ -17,8 +17,14 @@ var feedbackText = "Find an error? Please let us know! Please email us a descrip
 
 var contributeText = "Want to help make this resource better for everyone? Send us your pictures! Help us scan new ones! Update our database and image collection! All inquiries welcome.";
 
+var toggleButtons = function() {
+    $('button').each(function(_, btn) {
+        $(btn).prop('disabled', !$(btn).prop('disabled'));
+    });
+};
+
 // Capture the click event on a link (anchor element) to an image. Get the href.
-$(".navBits a").click(function (event) {
+$(".navBits button").click(function (event) {
         event.preventDefault();
 
         // Add close button to nav overlay first
@@ -37,7 +43,7 @@ $(".navBits a").click(function (event) {
         } else {
             $overlay.append("<p>"+contributeText+"<p>");
         }
-
+        toggleButtons();
 
         // Build Overlay
 
@@ -46,8 +52,10 @@ $(".navBits a").click(function (event) {
         $overlay.fadeIn("fast");
 
         $closeButton.on('click', function (e) {
+            toggleButtons();
             $overlay.fadeOut("fast");
             $overlay.children().remove();
+
 
         });
 

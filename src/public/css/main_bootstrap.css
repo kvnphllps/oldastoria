@@ -18,7 +18,7 @@ header{
 /*html, body, */
 
 #map-canvas {
-    height: 97.5%;
+    height: 92.5%;
     /*height: 100%;*/
     /*width: 100%;*/
     /*margin: 0px;*/
@@ -89,6 +89,19 @@ header{
 #navUL li a{
     color: white;
 }
+
+.navBits button {
+    background-color: transparent;
+    border: none;
+    padding-right: 20px;
+    padding-top: 15px;
+}
+
+.navBits button:hover {
+    color: gray;
+}
+
+
 
 /***************************************/
 /*Overlay*/
