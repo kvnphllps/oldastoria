@@ -45,5 +45,14 @@
         display: none;
     }
 
+    #navOverlay {
+        width:80%;
+        height:90%;
+        top:8%;
+        left:10%;
+        display:none;
+        /*text-align:center;*/
+    }
+
 
 }
