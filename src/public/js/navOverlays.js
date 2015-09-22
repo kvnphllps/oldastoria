@@ -18,7 +18,7 @@ var feedbackText = "Find an error? Please let us know! Please email us a descrip
 var contributeText = "Want to help make this resource better for everyone? Send us your pictures! Help us scan new ones! Update our database and image collection! All inquiries welcome.";
 
 // Capture the click event on a link (anchor element) to an image. Get the href.
-$("#navBits a").click(function (event) {
+$(".navBits a").click(function (event) {
         event.preventDefault();
 
         // Add close button to nav overlay first
@@ -47,7 +47,7 @@ $("#navBits a").click(function (event) {
 
         $closeButton.on('click', function (e) {
             $overlay.fadeOut("fast");
-            $overlay.children().remove(); //ugly but works!
+            $overlay.children().remove();
 
         });
 
