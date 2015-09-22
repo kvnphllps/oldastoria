@@ -97,7 +97,8 @@ function initializeMap() {
         },{
             featureType: "water",
             stylers: [
-                { color: "#b1d2fe" }
+                //{ color: "#b1d2fe" }
+                { color: "#cae9eb" } // From Alma Chocolate
             ]
         }
     ];
