@@ -2,15 +2,41 @@
  * Created by kevinGphillips on 6/29/15.
  */
 
+// Modularize our storage of images: can be local or production
+
+function thumbUrl(id) {
+    // eventually use a webservice to host our image assets
+    //return 'https://s3.amazonaws.com/oldastoria/thumb/' + id + '.jpg';
+    return '/static/img/thumbs/' + id + '.jpg';
+}
+
+function imageUrl(id) {
+    // eventually use a webservice to host our image assets
+    //return 'https://s3.amazonaws.com/oldastoria/500px/' + id + '.jpg';
+    return '/static/img/500px/' + id + '.jpg';
+}
+
+// update image sources
+var infos = $.map(dotData, function (info, id) {
+    return $.extend({
+        largesrc: imageUrl(id),
+        src: thumbUrl(id)
+    }, info);
+});
+
+
 function initializeMap() {
 
     // Define default map centering
 
     // Defaults: if zoom = 14 then:
     //var defPos = new google.maps.LatLng(46.183, -123.82251);
+    var defPos = new google.maps.LatLng(46.186, -123.81251);
+
+    //var defPos = new google.maps.LatLng(46.183, -123.82251);
 
     // Defaults: if zoom = 16 then:
-    var defPos = new google.maps.LatLng(46.188285, -123.831776);
+    //var defPos = new google.maps.LatLng(46.188285, -123.831776);
 
     // define SVG dots
         // Default dot style
@@ -21,7 +47,7 @@ function initializeMap() {
         fillOpacity: 0.5,
         strokeColor:"#c1595a",
         strokeOpacity: 0.5,
-        scale: 6
+        scale: 5
 
     };
         // Hover (mouseover) state dot style
@@ -39,7 +65,7 @@ function initializeMap() {
     // Bounds on map zoom
     var mapMinZoom = 14;
     var mapMaxZoom = 17;
-    var defaultZoom = 16;
+    var defaultZoom = 14;
 
     // Set Map properties: terrain map with a defaultZoom
     var mapOptions = {
@@ -51,7 +77,8 @@ function initializeMap() {
         disableDefaultUI: true,
         zoomControl: true,
         zoomControlOptions: {
-            style: google.maps.ZoomControlStyle.MEDIUM
+            style: google.maps.ZoomControlStyle.LARGE,
+            position: google.maps.ControlPosition.LEFT_BOTTOM
         },
         panControl: true
     };
@@ -80,21 +107,17 @@ function initializeMap() {
     var markers = [];
 
     // loop through dotData.js and draw dots, info windows
-    for (var i = 0; i < dotData.length; i++) {
+    for (var i = 0; i < Object.keys(dotData).length; i++) {
 
         var dotMarker = new google.maps.Marker(
             {
                 position : new google.maps.LatLng(dotData[i].position.lat, dotData[i].position.lng),
                 map : astoriaMap,
                 icon : mySmallDot,
-                // Swap in "loc" for prod.
-                //content : infoBoxHTML(dotData[i]['loc'], dotData[i].imgSrc),
-                // Swap in "id" for dev.
-                content : infoBoxHTML(dotData[i]['id'], dotData[i].imgSrc, dotData[i].desc  ), // uses grid expanding viewer!
-                id: dotData[i]['id'],
+                id: dotData[i].id
             }
-
         );
+
         // add current dot to our collection of dots
         markers.push(dotMarker);
 
@@ -113,39 +136,55 @@ function initializeMap() {
 
         });
 
-        // Define Overlay components to be bound to dot click events.
-        var $overlay = $("<div id = 'overlay'></div>");
-        var $gePrev = $("<ul id='og-grid' class='og-grid'></ul>");
-        var $closeButton = $('<button id = "closeButton">&times</button>');
-        var $cchsIco = $('<img id = "cchsIcon" src = "/static/img/cchs_icon.png">');
 
-        // Build Overlay
-        $overlay.append($closeButton);
-            // Add cchs icon to our overlay
-        $overlay.append($cchsIco);
-            // Add an overlay to the body
-        $("body").append($overlay);
-
-        // Click listener for dots: show overlay on a click
-        // Todo: Grid expanding viewer!
-        // Todo: What if I don't have any photos for a given location? Make the dot turn yellow?
         new google.maps.event.addListener(markers[i], 'click', function () {
 
-            var $currImages = this.content; // this will need to be an li a img for each image source found
-            // Get image information from the click
-            $overlay.append($currImages);
-            //console.log('id: ' + this.id + ' imgSrc: ' + this.imgSrc);
-            $overlay.fadeIn();
+            // Get current dot information
+            var dotID = this.id;
 
-            $closeButton.on('click', function (e) {
+            // Our dotOverlay function should return the overlay here. Then we'll show it, hide it, detach it
+            // as needed.
+            //var $overlay = dotOverlayGenerator(dotID);
+            //$("body").append($overlay);
+            //$overlay.fadeIn();
 
-                $overlay.fadeOut();
-
-                $(this).next().next().remove(); //ugly but works!
-
+            var recs = dotData[dotID].records;
+            var infos = $.map(recs, function(info, id) {
+                return $.extend({
+                    id: id,
+                    largesrc: imageUrl(id),
+                    src: thumbUrl(id)
+                }, info);
             });
 
-         });
+                $('.main')
+                    .show()
+                    .expandableGrid({
+                        rowHeight: 180
+                    }, infos);
+
+                $('.main').find('.location').text(infos[dotID].loc);
+
+                $('#mainCloseButton').on('click', function() {
+                    $('.main').hide();
+                    $('.main').find('.og-grid').remove(); // clean the slate!
+                });
+
+
+                $('.main').on('og-fill', 'li', function(e, div) {
+                    var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
+                    //var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
+                    $(div).empty().append(
+                        $('#og-details-template').clone().removeAttr('id').show());
+                    $(div).find('.title').text(recs[id].date);
+                    $(div).find('.dscrptn').text(recs[id].dscrptn);
+                    $(div).find('.picSource').text(recs[id].imageSrc);
+                    // This is the janky-ist $hit! jeez, fb!
+                    $(div).find('.fb-comments span').css({"width":"100%"});
+                    $(div).find('.fb-comments span iframe').css({"width":"100%"});
+                });
+
+        });
 
     }
 

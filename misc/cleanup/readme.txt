@@ -1,0 +1,1 @@
+This directory contains old code that I've cleaned out of my main src folder - just in case I need it again.
