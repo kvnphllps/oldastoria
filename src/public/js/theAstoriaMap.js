@@ -143,13 +143,13 @@ function initializeMap() {
             // Get current dot information
             var dotID = this.id;
 
-            // Our dotOverlay function should return the overlay here. Then we'll show it, hide it, detach it
-            // as needed.
-            //var $overlay = dotOverlayGenerator(dotID);
-            //$("body").append($overlay);
-            //$overlay.fadeIn();
+            // Current dot location text
+            var currLoc = dotData[dotID].loc;
 
+            // Records associated with current dot
             var recs = dotData[dotID].records;
+
+            // Extend schema to modular photo source
             var infos = $.map(recs, function(info, id) {
                 return $.extend({
                     id: id,
@@ -158,13 +158,14 @@ function initializeMap() {
                 }, info);
             });
 
+            // jQuery bits to interpolate dotData records into the detail views
                 $('.main')
                     .show()
                     .expandableGrid({
                         rowHeight: 180
                     }, infos);
 
-                $('.main').find('.location').text(infos[dotID].loc);
+                $('.main').find('.location').text(currLoc); // no worky b/c dotID > num Images!
 
                 $('#mainCloseButton').on('click', function() {
                     $('.main').hide();
