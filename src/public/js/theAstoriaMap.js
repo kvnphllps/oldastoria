@@ -195,3 +195,4 @@ function initializeMap() {
 // Initialize the map in the DOM upon window load.
 google.maps.event.addDomListener(window, 'load', initializeMap);
 
+console.log(dotData);
