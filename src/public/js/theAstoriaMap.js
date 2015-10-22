@@ -3,7 +3,6 @@
  */
 
 // Modularize our storage of images: can be local or production
-
 function thumbUrl(id) {
     // eventually use a webservice to host our image assets
     //return 'https://s3.amazonaws.com/oldastoria/thumb/' + id + '.jpg';
@@ -24,48 +23,48 @@ var infos = $.map(dotData, function (info, id) {
     }, info);
 });
 
+// define SVG GeoLoc markers
 
-function initializeMap() {
+// Default dot style
+var mySmallDot = {
+    path: google.maps.SymbolPath.CIRCLE,
+    strokeWeight: 0,
+    fillColor: "#c1595a",
+    fillOpacity: 0.5,
+    strokeColor:"#c1595a",
+    strokeOpacity: 0.5,
+    scale: 5
 
-    // Define default map centering
+};
 
-    // Defaults: if zoom = 14 then:
-    //var defPos = new google.maps.LatLng(46.183, -123.82251);
-    var defPos = new google.maps.LatLng(46.186, -123.81251);
-
-    //var defPos = new google.maps.LatLng(46.183, -123.82251);
-
-    // Defaults: if zoom = 16 then:
-    //var defPos = new google.maps.LatLng(46.188285, -123.831776);
-
-    // define SVG dots
-        // Default dot style
-    var mySmallDot = {
-        path: google.maps.SymbolPath.CIRCLE,
-        strokeWeight: 0,
-        fillColor: "#c1595a",
-        fillOpacity: 0.5,
-        strokeColor:"#c1595a",
-        strokeOpacity: 0.5,
-        scale: 5
-
-    };
-        // Hover (mouseover) state dot style
-    var myBigDot = {
-        path: google.maps.SymbolPath.CIRCLE,
-        strokeWeight: 3,
-        fillColor:  "#c1595a",// "#ffe07b",
-        fillOpacity: 1.0,
-        strokeOpacity: 1.0,
-        strokeColor: "#c1595a",//"#ffe07b",
-        scale: 7
-    };
+// Hover (mouse-over) state dot style
+var myBigDot = {
+    path: google.maps.SymbolPath.CIRCLE,
+    strokeWeight: 3,
+    fillColor:  "#c1595a",// "#ffe07b",
+    fillOpacity: 1.0,
+    strokeOpacity: 1.0,
+    strokeColor: "#c1595a",//"#ffe07b",
+    scale: 7
+};
 
 
-    // Bounds on map zoom
-    var mapMinZoom = 14;
-    var mapMaxZoom = 17;
-    var defaultZoom = 14;
+// Define default map centering for a given zoom
+
+// Defaults: if zoom = 14 then:
+//var defaultZoom = 14;
+//var defPos = new google.maps.LatLng(46.186, -123.81251);
+
+// Defaults: if zoom = 16 then:
+var defaultZoom = 16;
+var defPos = new google.maps.LatLng(46.188547, -123.827159); // position of 15th and Duane near org. Astor Fort.
+
+// Bounds on map zoom
+var mapMinZoom = 14;
+var mapMaxZoom = 17;
+
+function initializeMap( ) {
+
 
     // Set Map properties: terrain map with a defaultZoom
     var mapOptions = {
@@ -98,7 +97,8 @@ function initializeMap() {
             featureType: "water",
             stylers: [
                 //{ color: "#b1d2fe" }
-                { color: "#cae9eb" } // From Alma Chocolate
+                // { color: "#cae9eb" } // From Alma Chocolate
+                 {color: "#ade3e6"}
             ]
         }
     ];
@@ -106,6 +106,35 @@ function initializeMap() {
 
     // Initialize dots to be used on the map
     var markers = [];
+
+    //// Get bounds on page load, load appropriate
+    //var getBoundsToggle = 1; // Toggler for this listener
+    //google.maps.event.addListener(astoriaMap, 'bounds_changed', function() {
+    //    if (getBoundsToggle) {
+    //        getBoundsToggle = 0;
+    //        console.log(astoriaMap.getBounds());
+    //    }
+    //});
+
+    // Get bounds when user pans, load appropriate Geo data
+    new google.maps.event.addListener(astoriaMap, 'idle', function () {
+
+        // Get bounds
+        var temp = astoriaMap.getBounds();
+        var bounds = {};
+        // Latitude bounds
+        bounds.upLat = temp.La.I;
+        bounds.lowLat = temp.La.j;
+
+        // Longitude bounds
+        bounds.upLng = temp.Pa.j;
+        bounds.lowLng = temp.Pa.I;
+
+        console.log($.param(bounds))
+
+    });
+
+
 
     // loop through dotData.js and draw dots, info windows
     for (var i = 0; i < Object.keys(dotData).length; i++) {
@@ -190,9 +219,11 @@ function initializeMap() {
 
     }
 
+
+
+
 }
 
 // Initialize the map in the DOM upon window load.
 google.maps.event.addDomListener(window, 'load', initializeMap);
 
-console.log(dotData);
