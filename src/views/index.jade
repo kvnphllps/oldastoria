@@ -13,8 +13,6 @@ html
       // Lora Font via The Googles
       link(href='https://fonts.googleapis.com/css?family=Lora', rel='stylesheet', type='text/css')
 
-      // Grid styling for expanding previewer  
-      //link(rel='stylesheet', href='static/js/expandable-image-grid-master/grid.css')
       title Old Astoria
 
  body
@@ -116,9 +114,10 @@ html
                         .fb-comments(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='100%', data-order-by = 'time', data-numposts = '1')
     #map-canvas
 
+    // Google map API Key // 
     include ./partials/maps_api_key
-    // You will require your own API key. Comment the line above and then uncomment the line below.
-    // replace "Your_API_key_here" with your key from The Googles. For details see https://developers.google.com/maps/signup?hl=en
+    
+    // You will require your own API key. Comment the line above and then uncomment the line beginning with "script(... etc. ...)"" below. Replace "Your_API_key_here" with your key from The Googles. For details see https://developers.google.com/maps/signup?hl=en
 
     // script(src='https://maps.googleapis.com/maps/api/js?key=Your_API_key_here', type='text/javascript')
 
