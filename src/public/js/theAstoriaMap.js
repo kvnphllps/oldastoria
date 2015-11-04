@@ -159,9 +159,12 @@ function initializeMap( ) {
             });
 
             // jQuery bits to interpolate dotData records into the detail views
+                $('.main').Grid
+
                 $('.main').show().expandableGrid({
                                         rowHeight: 180
                                   }, infos);
+
 
                 $('.main').find('.location').text(currLoc); // no worky b/c dotID > num Images!
 
