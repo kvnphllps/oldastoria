@@ -15,16 +15,6 @@ function imageUrl(id) {
     return '/static/img/500px/' + id + '.jpg';
 }
 
-// // update image sources
-// var infos = $.map(dotData, function (info, id) {
-//     return $.extend({
-//         largesrc: imageUrl(id),
-//         src: thumbUrl(id)
-//     }, info);
-// });
-
-// define SVG GeoLoc markers
-
 // Default dot style
 var mySmallDot = {
     path: google.maps.SymbolPath.CIRCLE,
@@ -64,23 +54,21 @@ var mapMinZoom = 14;
 var mapMaxZoom = 17;
 
 var infos;
-
 // Grid expanding previewer
-function gePrev(dotData, dotMarker) {
+function gePrev(dotData, currId) {
 
 // over in ASP.NET world we will pass the current marker and the current geo data
 // to get our data organization correct - not a big deal.
 
 // Organizing current data related to this marker
             
-            // current dot id
-            var dotID = dotMarker.id;
+            
 
             // Current dot location text
-            var currLoc = dotData[dotID].loc;
+            var currLoc = dotData[currId].loc;
 
             // Records associated with current dot
-            var recs = dotData[dotID].records;
+            var recs = dotData[currId].records;
 
             // Extend json schema to modular photo source
             infos = $.map(recs, function(info, id) {
@@ -97,58 +85,24 @@ function gePrev(dotData, dotMarker) {
 
             for (var i = 0; i < numRecords; i++) {
                 htmlScaffold += '<li>' +
-                                    '<a href= "" data-largesrc= "' +  infos[i].largesrc  +  '" >' +
+                                    '<a href= "#" data-largesrc= "' +  infos[i].largesrc  +  '" >' +
                                         '<img src= "' + infos[i].src + '"/>' +
                                     '</a>' +
                                 '</li>';
-            };
+            }
 
             htmlScaffold += '</ul>' ;
-            // htmlScaffold += '<script> $(function() {Grid.init();});</script>';
+            htmlScaffold += '<script src="static/js/grid.js"></script>';
+            htmlScaffold += '<script> $(function() {Grid.init();});</script>';
 
-            $('.main').append(htmlScaffold).show();
+            return htmlScaffold;
 
-            console.log(htmlScaffold);
+           
+}
 
-            // Then activate via grid associated js. (From codrops)
+var markers = [];
 
-            // Original bits from danvk - breaks when going to full screen mode...
-            // jQuery bits to interpolate dotData records into the detail views
-                // $('.main').Grid
-
-                // $('.main').show().expandableGrid({
-                //                         rowHeight: 180
-                //                   }, infos);
-
-
-                // $('.main').find('.location').text(currLoc); // no worky b/c dotID > num Images!
-
-                $('#mainCloseButton').on('click', function() {
-                    $('.main').hide();
-                    $('.main').find('.og-grid').remove(); // clean the slate!
-                });
-
-
-                $('.main').on('og-fill', 'li', function(e, div) {
-                    var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
-                    //var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
-                    $(div).empty().append(
-                        $('#og-details-template').clone().removeAttr('id').show());
-                    $(div).find('.title').text(recs[id].date);
-                    $(div).find('.dscrptn').text(recs[id].dscrptn);
-                    $(div).find('.picSource').text(recs[id].imageSrc);
-                    // This is the janky-ist $hit! jeez, fb!
-                    $(div).find('.fb-comments span').css({"width":"100%"});
-                    $(div).find('.fb-comments span iframe').css({"width":"100%"});
-                });
-
-
-};
-
-
-
-
-function initializeMap( ) {
+function initializeMap() {
 
 
     // Set Map properties: terrain map with a defaultZoom
@@ -189,9 +143,6 @@ function initializeMap( ) {
     ];
     astoriaMap.setOptions({styles: noPoi});
 
-    // Initialize dots to be used on the map
-    var markers = [];
-
     // loop through dotData.js and draw dots, info windows
     for (var i = 0; i < Object.keys(dotData).length; i++) {
 
@@ -204,9 +155,7 @@ function initializeMap( ) {
             }
         );
 
-        // add current dot to our collection of dots
         markers.push(dotMarker);
-
 
         // Mouse over listener for the dots: use opaque dot myBigDot.
         new google.maps.event.addListener(markers[i], 'mouseover', function () {
@@ -221,11 +170,36 @@ function initializeMap( ) {
             this.setIcon(mySmallDot);
 
         });
+        
+        
+
+        new google.maps.event.addListener(markers[i], 'click', function () {
+            
+            var thumbGridHTML = gePrev(dotData, this.id);
+
+            $('.main').append(thumbGridHTML).show();
+                 
+            $('.main').find('.location').text(this.id); // no worky b/c dotID > num Images!
+
+            $('#mainCloseButton').on('click', function() {
+                $('.main').hide();
+                $('.main').find('.og-grid').remove(); // clean the slate!
+            });
 
 
-        new google.maps.event.addListener(dotMarker, 'click', function () {
+            // $('.main').on('og-fill', 'li', function(e, div) {
+            //     var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
+            //     //var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
+            //     $(div).empty().append(
+            //         $('#og-details-template').clone().removeAttr('id').show());
+            //     $(div).find('.title').text(recs[id].date);
+            //     $(div).find('.dscrptn').text(recs[id].dscrptn);
+            //     $(div).find('.picSource').text(recs[id].imageSrc);
+            //     // This is the janky-ist $hit! jeez, fb!
+            //     $(div).find('.fb-comments span').css({"width":"100%"});
+            //     $(div).find('.fb-comments span iframe').css({"width":"100%"});
+            // });
 
-            gePrev(dotData, dotMarker);
 
         });
     }
