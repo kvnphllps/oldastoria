@@ -107,35 +107,6 @@ function initializeMap( ) {
     // Initialize dots to be used on the map
     var markers = [];
 
-    //// Get bounds on page load, load appropriate
-    //var getBoundsToggle = 1; // Toggler for this listener
-    //google.maps.event.addListener(astoriaMap, 'bounds_changed', function() {
-    //    if (getBoundsToggle) {
-    //        getBoundsToggle = 0;
-    //        console.log(astoriaMap.getBounds());
-    //    }
-    //});
-
-    // Get bounds when user pans, load appropriate Geo data
-    new google.maps.event.addListener(astoriaMap, 'idle', function () {
-
-        // Get bounds
-        var temp = astoriaMap.getBounds();
-        var bounds = {};
-        // Latitude bounds
-        bounds.upLat = temp.La.I;
-        bounds.lowLat = temp.La.j;
-
-        // Longitude bounds
-        bounds.upLng = temp.Pa.j;
-        bounds.lowLng = temp.Pa.I;
-
-        console.log($.param(bounds))
-
-    });
-
-
-
     // loop through dotData.js and draw dots, info windows
     for (var i = 0; i < Object.keys(dotData).length; i++) {
 
@@ -188,11 +159,9 @@ function initializeMap( ) {
             });
 
             // jQuery bits to interpolate dotData records into the detail views
-                $('.main')
-                    .show()
-                    .expandableGrid({
-                        rowHeight: 180
-                    }, infos);
+                $('.main').show().expandableGrid({
+                                        rowHeight: 180
+                                  }, infos);
 
                 $('.main').find('.location').text(currLoc); // no worky b/c dotID > num Images!
 
@@ -202,18 +171,18 @@ function initializeMap( ) {
                 });
 
 
-                $('.main').on('og-fill', 'li', function(e, div) {
-                    var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
-                    //var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
-                    $(div).empty().append(
-                        $('#og-details-template').clone().removeAttr('id').show());
-                    $(div).find('.title').text(recs[id].date);
-                    $(div).find('.dscrptn').text(recs[id].dscrptn);
-                    $(div).find('.picSource').text(recs[id].imageSrc);
-                    // This is the janky-ist $hit! jeez, fb!
-                    $(div).find('.fb-comments span').css({"width":"100%"});
-                    $(div).find('.fb-comments span iframe').css({"width":"100%"});
-                });
+                // $('.main').on('og-fill', 'li', function(e, div) {
+                //     var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
+                //     //var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
+                //     $(div).empty().append(
+                //         $('#og-details-template').clone().removeAttr('id').show());
+                //     $(div).find('.title').text(recs[id].date);
+                //     $(div).find('.dscrptn').text(recs[id].dscrptn);
+                //     $(div).find('.picSource').text(recs[id].imageSrc);
+                //     // This is the janky-ist $hit! jeez, fb!
+                //     $(div).find('.fb-comments span').css({"width":"100%"});
+                //     $(div).find('.fb-comments span iframe').css({"width":"100%"});
+                // });
 
         });
 
