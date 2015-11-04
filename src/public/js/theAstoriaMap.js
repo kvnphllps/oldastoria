@@ -104,6 +104,9 @@ function gePrev(dotData, dotMarker) {
             };
 
             htmlScaffold += '</ul>' ;
+            // htmlScaffold += '<script> $(function() {Grid.init();});</script>';
+
+            $('.main').append(htmlScaffold).show();
 
             console.log(htmlScaffold);
 
@@ -120,24 +123,24 @@ function gePrev(dotData, dotMarker) {
 
                 // $('.main').find('.location').text(currLoc); // no worky b/c dotID > num Images!
 
-                // $('#mainCloseButton').on('click', function() {
-                //     $('.main').hide();
-                //     $('.main').find('.og-grid').remove(); // clean the slate!
-                // });
+                $('#mainCloseButton').on('click', function() {
+                    $('.main').hide();
+                    $('.main').find('.og-grid').remove(); // clean the slate!
+                });
 
 
-                // $('.main').on('og-fill', 'li', function(e, div) {
-                //     var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
-                //     //var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
-                //     $(div).empty().append(
-                //         $('#og-details-template').clone().removeAttr('id').show());
-                //     $(div).find('.title').text(recs[id].date);
-                //     $(div).find('.dscrptn').text(recs[id].dscrptn);
-                //     $(div).find('.picSource').text(recs[id].imageSrc);
-                //     // This is the janky-ist $hit! jeez, fb!
-                //     $(div).find('.fb-comments span').css({"width":"100%"});
-                //     $(div).find('.fb-comments span iframe').css({"width":"100%"});
-                // });
+                $('.main').on('og-fill', 'li', function(e, div) {
+                    var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
+                    //var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
+                    $(div).empty().append(
+                        $('#og-details-template').clone().removeAttr('id').show());
+                    $(div).find('.title').text(recs[id].date);
+                    $(div).find('.dscrptn').text(recs[id].dscrptn);
+                    $(div).find('.picSource').text(recs[id].imageSrc);
+                    // This is the janky-ist $hit! jeez, fb!
+                    $(div).find('.fb-comments span').css({"width":"100%"});
+                    $(div).find('.fb-comments span iframe').css({"width":"100%"});
+                });
 
 
 };
