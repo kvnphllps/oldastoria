@@ -584,14 +584,6 @@ var dotData = {
                 "imageSrc": " Cumtux ID Number etc.",
                 "tags" : " cat signage river"
             },
-            "image-b": {
-                "height": 500,
-                "width": 500,
-                "date": "1909",
-                "dscrptn": "This is another picture of olde stuff.",
-                "imageSrc": " Joe Bob",
-                "tags" : " people signage river"
-            },
             "image-c": {
                 "height": 500,
                 "width": 500,
