@@ -55,29 +55,10 @@ var mapMaxZoom = 17;
 
 var infos;
 // Grid expanding previewer
-function gePrev(dotData, currId) {
+function gePrev(infos, currId) {
 
 // over in ASP.NET world we will pass the current marker and the current geo data
 // to get our data organization correct - not a big deal.
-
-// Organizing current data related to this marker
-            
-            
-
-            // Current dot location text
-            var currLoc = dotData[currId].loc;
-
-            // Records associated with current dot
-            var recs = dotData[currId].records;
-
-            // Extend json schema to modular photo source
-            infos = $.map(recs, function(info, id) {
-                return $.extend({
-                    id: id,
-                    largesrc: imageUrl(id),
-                    src: thumbUrl(id)
-                }, info);
-            });
 
             // Pass the infos data object to our HTML scaffolder. (homebrewed by kp) 
             var numRecords = infos.length;
@@ -92,12 +73,12 @@ function gePrev(dotData, currId) {
             }
 
             htmlScaffold += '</ul>' ;
+            // Critical to the function of the grid expander functionality
             htmlScaffold += '<script src="static/js/grid.js"></script>';
             htmlScaffold += '<script> $(function() {Grid.init();});</script>';
 
             return htmlScaffold;
 
-           
 }
 
 var markers = [];
@@ -175,11 +156,26 @@ function initializeMap() {
 
         new google.maps.event.addListener(markers[i], 'click', function () {
             
-            var thumbGridHTML = gePrev(dotData, this.id);
+            // Current dot location text
+            var currLoc = dotData[this.id].loc;
+
+            // Records associated with current dot
+            var recs = dotData[this.id].records;
+
+            // Extend json schema to modular photo source
+            infos = $.map(recs, function(info, id) {
+                return $.extend({
+                    id: id,
+                    largesrc: imageUrl(id),
+                    src: thumbUrl(id)
+                }, info);
+            });
+
+            var thumbGridHTML = gePrev(infos, this.id);
 
             $('.main').append(thumbGridHTML).show();
                  
-            $('.main').find('.location').text(this.id); // no worky b/c dotID > num Images!
+            $('.main').find('.location').text(currLoc); 
 
             $('#mainCloseButton').on('click', function() {
                 $('.main').hide();
@@ -187,18 +183,18 @@ function initializeMap() {
             });
 
 
-            // $('.main').on('og-fill', 'li', function(e, div) {
-            //     var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
-            //     //var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
-            //     $(div).empty().append(
-            //         $('#og-details-template').clone().removeAttr('id').show());
-            //     $(div).find('.title').text(recs[id].date);
-            //     $(div).find('.dscrptn').text(recs[id].dscrptn);
-            //     $(div).find('.picSource').text(recs[id].imageSrc);
-            //     // This is the janky-ist $hit! jeez, fb!
-            //     $(div).find('.fb-comments span').css({"width":"100%"});
-            //     $(div).find('.fb-comments span iframe').css({"width":"100%"});
-            // });
+            $('.main').on('og-fill', 'li', function(e, div) {
+                var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
+                //var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
+                $(div).empty().append(
+                    $('#og-details').clone().removeAttr('id').show());
+                $(div).find('.title').text(recs[id].date);
+                $(div).find('.dscrptn').text(recs[id].dscrptn);
+                $(div).find('.picSource').text(recs[id].imageSrc);
+                // This is the janky-ist $hit! jeez, fb!
+                $(div).find('.fb-comments span').css({"width":"100%"});
+                $(div).find('.fb-comments span iframe').css({"width":"100%"});
+            });
 
 
         });
