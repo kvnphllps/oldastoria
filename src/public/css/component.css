@@ -106,7 +106,7 @@
 
 .og-expander {
 	position: absolute;
-	background: #ddd;
+	background: white;
 	top: auto;
 	left: 0;
 	width: 100%;
@@ -180,19 +180,24 @@
 
 .og-details h3 {
 	font-weight: 300;
-	font-size: 52px;
-	padding: 40px 0 10px;
+	font-size: 32px;
+	padding: 0px 0 10px;
 	margin-bottom: 10px;
+	margin-top: 0px;
+}
+
+.og-details h4 {
+	font-size: 18px;
 }
 
 .og-details p {
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 22px;
-	color: #999;
+	color: black;
 }
 
-.og-details a {
+/*.og-details a {
 	font-weight: 700;
 	font-size: 16px;
 	color: #333;
@@ -214,7 +219,7 @@
 .og-details a:hover {
 	border-color: #999;
 	color: #999;
-}
+}*/
 
 .og-loading {
 	width: 20px;

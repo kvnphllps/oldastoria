@@ -346,8 +346,10 @@ var Grid = (function() {
 			this.$description = $( '<p></p>' );
 			this.$details = $( '<p></p>' );
 			this.$href = $( '<a href="#">Visit website</a>' );
-			this.$social = $('<div class="fb-comments-container"><div class="social"><ul><li style="margin-top:5.5px"><a href="https://twitter.com/share" data-count="none" data-hashtags="oldastoria" class="twitter-share-button">Tweet<script>!function (d, s, id) {var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? "http" : "https";if (!d.getElementById(id)) {js = d.createElement(s);js.id = id;js.src = p + "://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js, fjs);}}(document, "script", "twitter-wjs");</script></a></li><li><div data-href="https://developers.facebook.com/docs/plugins/" data-width="100" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" class="fb-like"></div></li><li><div data-href="http://developers.facebook.com/docs/plugins/comments/" data-width="100%" data-order-by="time" data-numposts="1" class="fb-comments"></li></ul></div></div></div>');
-			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$details, this.$social);
+			this.$error = $('<h4>Find an error? Please send us <a href=#>feedback</a>.</h4>');
+			this.$social = $('<a href="https://twitter.com/share" data-count="none" data-hashtags="oldastoria" class="twitter-share-button">Tweet<script>!function (d, s, id) {var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? "http" : "https";if (!d.getElementById(id)) {js = d.createElement(s);js.id = id;js.src = p + "://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js, fjs);}}(document, "script", "twitter-wjs");</script></a>');
+			this.$fb = $('<div data-href="https://developers.facebook.com/docs/plugins/" data-width="100" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" class="fb-like"></div>');
+			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$details, this.$social, this.$fb, this.$error);
 			this.$loading = $( '<div class="og-loading"></div>' );
 			this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
 			this.$closePreview = $( '<span class="og-close"></span>' );
