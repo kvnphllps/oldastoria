@@ -24,7 +24,6 @@
   "homepage": "https://github.com/kvnphllps/oldastoria_node#readme",
   "dependencies": {
     "express": "^4.13.3",
-    "jade": "^1.11.0",
-    "jquery": "^2.1.4"
+    "jade": "^1.11.0"
   }
 }
