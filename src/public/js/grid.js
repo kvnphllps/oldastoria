@@ -343,13 +343,16 @@ var Grid = (function() {
 		create : function() {
 			// create Preview structure:
 			this.$title = $( '<h3></h3>' );
+			// this.$fbLike = $('<div data-href="https://developers.facebook.com/docs/plugins/" data-width="100" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" class="fb-like"></div>');
+			this.$hrSep = $('<hr>');
 			this.$description = $( '<p></p>' );
 			this.$details = $( '<p></p>' );
 			this.$href = $( '<a href="#">Visit website</a>' );
-			this.$error = $('<h4>Find an error? Please send us <a href=#>feedback</a>.</h4>');
-			this.$social = $('<a href="https://twitter.com/share" data-count="none" data-hashtags="oldastoria" class="twitter-share-button">Tweet<script>!function (d, s, id) {var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? "http" : "https";if (!d.getElementById(id)) {js = d.createElement(s);js.id = id;js.src = p + "://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js, fjs);}}(document, "script", "twitter-wjs");</script></a>');
-			this.$fb = $('<div data-href="https://developers.facebook.com/docs/plugins/" data-width="100" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" class="fb-like"></div>');
-			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$details, this.$social, this.$fb, this.$error);
+			this.$error = $('<hr> <h4>Find an error? Please send us <a href=#>feedback</a>.</h4>');
+			this.$fbRoot = $('<script>(function (d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementByIdid) return;js = d.createElement(s);js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";fjs.parentNode.insertBefore(js, fjs);}(document, \'script\',\'facebook-jssdk\'));</script>');
+			// this.$social = $('<a href="https://twitter.com/share" data-count="none" data-hashtags="oldastoria" class="twitter-share-button">Tweet<script>!function (d, s, id) {var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? "http" : "https";if (!d.getElementById(id)) {js = d.createElement(s);js.id = id;js.src = p + "://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js, fjs);}}(document, "script", "twitter-wjs");</script></a>');
+			// this.$fb = $('<div data-href="https://developers.facebook.com/docs/plugins/" data-width="100" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true" class="fb-like"></div>');
+			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$hrSep, this.$description, this.$details, this.$error);
 			this.$loading = $( '<div class="og-loading"></div>' );
 			this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
 			this.$closePreview = $( '<span class="og-close"></span>' );
