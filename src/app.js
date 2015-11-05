@@ -29,4 +29,5 @@ app.get('/', function (req,res) {
 // Listen on port off localhost
 app.listen(PORT, function () {
     console.log("Frontend server running on port " + PORT + ".")
+    console.log("Copy and paste http://localhost:" + PORT + " into your browser of choice.")
 });
