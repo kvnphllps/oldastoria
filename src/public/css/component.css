@@ -1,4 +1,4 @@
-/* This file is an adaptation of https://github.com/danvk/expandable-image-grid/blob/master/grid.css */
+/* This file is an adaptation of ...  */
 .main{
     background:rgba(2,2,2,0.8);
     width:100%;
@@ -67,29 +67,19 @@
 
 
 
-.og-grid *,
-.og-grid *:after,
-.og-grid *:before {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 0;
-	margin: 0;
-}
-
 .og-grid {
 	list-style: none;
-	padding: 70px 0;
+	padding: 20px 0;
 	margin: 0 auto;
-	text-align: left;
-	width: 90%;
-    left: 3.5%;
+	text-align: center;
+	width: 100%;
 }
 
 .og-grid li {
 	display: inline-block;
 	margin: 10px 5px 0 5px;
 	vertical-align: top;
+	height: 250px;
 }
 
 .og-grid li > a,
@@ -116,14 +106,13 @@
 
 .og-expander {
 	position: absolute;
-	/*background: #ddd;*/
-    background: white;
+	background: white;
 	top: auto;
 	left: 0;
 	width: 100%;
 	margin-top: 10px;
 	text-align: left;
-	height: 50%;
+	height: 0;
 	overflow: hidden;
 }
 
@@ -170,21 +159,14 @@
 	width: 50%;
 	float: left;
 	height: 100%;
+	/*overflow: hidden;*/
 	overflow-y: scroll;
 	position: relative;
 }
 
-
 .og-details {
 	padding: 0 40px 0 20px;
 }
-
-.og-details h1 {
-    color:black;
-    font-size: 1.75em;
-}
-
-
 
 .og-fullimg {
 	text-align: center;
@@ -195,6 +177,55 @@
 	max-height: 100%;
 	max-width: 100%;
 }
+
+.og-details h3 {
+	font-weight: 300;
+	font-size: 32px;
+	padding: 0px 0 10px;
+	margin-bottom: 10px;
+	margin-top: 0px;
+}
+
+.og-details h4 {
+	font-size: 18px;
+}
+
+.og-details p {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22px;
+	color: black;
+}
+
+.og-details hr {
+	border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+/*.og-details a {
+	font-weight: 700;
+	font-size: 16px;
+	color: #333;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 10px 20px;
+	border: 3px solid #333;
+	display: inline-block;
+	margin: 30px 0 0;
+	outline: none;
+}
+
+.og-details a::before {
+	content: '\2192';
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.og-details a:hover {
+	border-color: #999;
+	color: #999;
+}*/
 
 .og-loading {
 	width: 20px;
@@ -211,34 +242,11 @@
 	animation: loader 0.5s infinite ease-in-out both;
 }
 
-.og-previous, .og-next {
-  position: absolute;
-  top: 50%;
-  margin-top: -20px;
-  height: 23px;
-  width: 14px;
-  line-height: 40px;
-}
-.og-previous {
-  left: 10px;
-  background-image:url('arrow-left.png');
-}
-.og-previous:hover {
-  background-image:url('arrow-left-hover.png');
-}
-.og-next {
-  right: 5px;
-  background-image:url('arrow-right.png');
-}
-.og-next:hover {
-  background-image:url('arrow-right-hover.png');
-}
-
 .fb-comments-container {
     max-height: 350px;
     max-width: 350px;
-    overflow: scroll;
-    z-index: 1000;
+    /*overflow: scroll;*/
+    z-index: 2000;
 }
 
 .fb-comments, .fb_iframe_widget, .fb_iframe_widget_fluid {
@@ -258,12 +266,6 @@
     display: inline-block;
 }
 
-.error {
-    color:purple;
-}
-.error:hover {
-    color: red;
-}
 
 @-webkit-keyframes loader {
 	0% { background: #ddd; }

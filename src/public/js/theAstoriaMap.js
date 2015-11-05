@@ -15,16 +15,6 @@ function imageUrl(id) {
     return '/static/img/500px/' + id + '.jpg';
 }
 
-// update image sources
-var infos = $.map(dotData, function (info, id) {
-    return $.extend({
-        largesrc: imageUrl(id),
-        src: thumbUrl(id)
-    }, info);
-});
-
-// define SVG GeoLoc markers
-
 // Default dot style
 var mySmallDot = {
     path: google.maps.SymbolPath.CIRCLE,
@@ -63,7 +53,37 @@ var defPos = new google.maps.LatLng(46.188547, -123.827159); // position of 15th
 var mapMinZoom = 14;
 var mapMaxZoom = 17;
 
-function initializeMap( ) {
+var infos;
+// Grid expanding previewer
+function gePrev(infos, currId) {
+
+// over in ASP.NET world we will pass the current marker and the current geo data
+// to get our data organization correct - not a big deal.
+
+            // Pass the infos data object to our HTML scaffolder. (homebrewed by kp) 
+            var numRecords = infos.length;
+            var htmlScaffold = '<ul id="og-grid" class="og-grid">' ;
+
+            for (var i = 0; i < numRecords; i++) {
+                htmlScaffold += '<li>' +
+                                    '<a href= "#" data-largesrc= "' +  infos[i].largesrc  +  '" data-title =" '+ infos[i].date  +'" data-description = "'+ infos[i].dscrptn + '" >' +
+                                        '<img src= "' + infos[i].src + '"/>' +
+                                    '</a>' +
+                                '</li>';
+            }
+
+            htmlScaffold += '</ul>' ;
+            // Critical to the function of the grid expander functionality
+            htmlScaffold += '<script src="static/js/grid.js"></script>';
+            htmlScaffold += '<script> $(function() {Grid.init();});</script>';
+
+            return htmlScaffold;
+
+}
+
+var markers = [];
+
+function initializeMap() {
 
 
     // Set Map properties: terrain map with a defaultZoom
@@ -104,9 +124,6 @@ function initializeMap( ) {
     ];
     astoriaMap.setOptions({styles: noPoi});
 
-    // Initialize dots to be used on the map
-    var markers = [];
-
     // loop through dotData.js and draw dots, info windows
     for (var i = 0; i < Object.keys(dotData).length; i++) {
 
@@ -119,9 +136,7 @@ function initializeMap( ) {
             }
         );
 
-        // add current dot to our collection of dots
         markers.push(dotMarker);
-
 
         // Mouse over listener for the dots: use opaque dot myBigDot.
         new google.maps.event.addListener(markers[i], 'mouseover', function () {
@@ -136,21 +151,19 @@ function initializeMap( ) {
             this.setIcon(mySmallDot);
 
         });
-
+        
+        
 
         new google.maps.event.addListener(markers[i], 'click', function () {
-
-            // Get current dot information
-            var dotID = this.id;
-
+            
             // Current dot location text
-            var currLoc = dotData[dotID].loc;
+            var currLoc = dotData[this.id].loc;
 
             // Records associated with current dot
-            var recs = dotData[dotID].records;
+            var recs = dotData[this.id].records;
 
-            // Extend schema to modular photo source
-            var infos = $.map(recs, function(info, id) {
+            // Extend json schema to modular photo source
+            infos = $.map(recs, function(info, id) {
                 return $.extend({
                     id: id,
                     largesrc: imageUrl(id),
@@ -158,22 +171,34 @@ function initializeMap( ) {
                 }, info);
             });
 
-            // jQuery bits to interpolate dotData records into the detail views
-                $('.main').Grid
+            var thumbGridHTML = gePrev(infos, this.id);
 
-                $('.main').show().expandableGrid({
-                                        rowHeight: 180
-                                  }, infos);
+            $('.main').append(thumbGridHTML).show();
+                 
+            $('.main').find('.location').text(currLoc); 
 
-
-                $('.main').find('.location').text(currLoc); // no worky b/c dotID > num Images!
-
-                $('#mainCloseButton').on('click', function() {
-                    $('.main').hide();
-                    $('.main').find('.og-grid').remove(); // clean the slate!
-                });
+        
+            $('#mainCloseButton').on('click', function() {
+                $('.main').hide();
+                $('.main').find('.og-grid').remove(); // clean the slate!
+            });
 
 
+
+            // $('.main').on('og-fill', 'li', function(e, div) {
+            //     var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
+            var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
+            //     $(div).empty().append(
+            //         $('#og-details').clone().removeAttr('id').show());
+            //     $(div).find('.title').text(recs[id].date);
+            //     $(div).find('.dscrptn').text(recs[id].dscrptn);
+            //     $(div).find('.picSource').text(recs[id].imageSrc);
+            //     // This is the janky-ist $hit! jeez, fb!
+                $('.fb-comments-container').find('.fb-comments span').css({"width":"100%"});
+                $('.fb-comments-container').find('.fb-comments span iframe').css({"width":"100%"});
+            // });
+
+<<<<<<< HEAD
                 $('.main').on('og-fill', 'li', function(e, div) {
                     var id = $(this).data('image-id'); // BLLLACCCK MAGIC$$$
                     //var fbLinker = "(data-href='http://developers.facebook.com/docs/plugins/comments/', data-width='328', data-numposts='5')";
@@ -186,14 +211,11 @@ function initializeMap( ) {
                     $(div).find('.fb-comments span').css({"width":"100%"});
                     $(div).find('.fb-comments span iframe').css({"width":"100%"});
                 });
+=======
+>>>>>>> feature/fixGEPrev
 
         });
-
     }
-
-
-
-
 }
 
 // Initialize the map in the DOM upon window load.

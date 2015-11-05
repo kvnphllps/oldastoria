@@ -12,8 +12,6 @@ var app = express();
 // Serve static files: css, js, images etc.
 app.use('/static', express.static(__dirname + '/public'));
 
-// Serve static files from node_modules: bootstrap for instance
-app.use('/static', express.static(__dirname + '/node_modules'));
 
 // Rendering configuration
 app.set('view engine', 'jade');

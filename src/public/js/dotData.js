@@ -141,7 +141,7 @@ var dotData = {
                 "height": 500,
                 "width": 500,
                 "date": "1879",
-                "dscrptn": "This is the last picture of olde stuff.",
+                "dscrptn": "Mumblecore yr wayfarers, vinyl hashtag cray biodiesel Neutra raw denim Helvetica selvage single-origin coffee. Vice PBR irony, vinyl trust fund literally gentrify. Taxidermy cornhole Carles flannel, cold-pressed lumbersexual 90's you probably haven't heard of them High Life kale chips. Hella typewriter +1, readymade organic distillery flannel. Portland butcher pork belly, church-key mustache beard mlkshk. Distillery occupy mixtape, flexitarian listicle leggings slow-carb Marfa mlkshk Thundercats church-key gentrify DIY. Chillwave fashion axe Odd Future Bushwick next level mumblecore, irony cray Truffaut authentic stumptown.Mumblecore yr wayfarers, vinyl hashtag cray biodiesel Neutra raw denim Helvetica selvage single-origin coffee. Vice PBR irony, vinyl trust fund literally gentrify. Taxidermy cornhole Carles flannel, cold-pressed lumbersexual 90's you probably haven't heard of them High Life kale chips. Hella typewriter +1, readymade organic distillery flannel. Portland butcher pork belly, church-key mustache beard mlkshk. Distillery occupy mixtape, flexitarian listicle leggings slow-carb Marfa mlkshk Thundercats church-key gentrify DIY. Chillwave fashion axe Odd Future Bushwick next level mumblecore, irony cray Truffaut authentic stumptown.",
                 "imageSrc": " Sara's olde photogs",
                 "tags" : " people dog river"
             }
@@ -583,14 +583,6 @@ var dotData = {
                 "dscrptn": "This is a picture of stuff. Old stuff.",
                 "imageSrc": " Cumtux ID Number etc.",
                 "tags" : " cat signage river"
-            },
-            "image-b": {
-                "height": 500,
-                "width": 500,
-                "date": "1909",
-                "dscrptn": "This is another picture of olde stuff.",
-                "imageSrc": " Joe Bob",
-                "tags" : " people signage river"
             },
             "image-c": {
                 "height": 500,
